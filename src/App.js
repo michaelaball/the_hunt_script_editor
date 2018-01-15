@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import checkboxHOC from 'react-table/lib/hoc/selectTable';
-import 'react-table/react-table.css'
 
 import NavModule from './Nav.js';
 import Footer from './Footer.js';

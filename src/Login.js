@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 
 const superagent = require('superagent');
 
-const defaultEndpoint = "http://localhost:8080/api";
-const loginEndpoint = "/login/facebook/dialog";
 const meEndpoint = "/users/me";
 
 class LoginModule extends Component {
