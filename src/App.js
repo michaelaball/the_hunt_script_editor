@@ -45,14 +45,10 @@ class App extends Component {
         })
     }
 
-    updateLogin(endpoint, newToken, loggedIn, trying) {
+    updateLogin(login) {
+        console.log(login);
         this.setState({
-            login: {
-                endpoint: endpoint,
-                token: newToken,
-                logginIn: loggedIn,
-                trying: trying,
-            }
+            login
         });
     }
 }
@@ -65,11 +61,16 @@ class NavModule extends Component {
     }
 
     onClickLogout() {
-        this.props.updateLogin(this.props.login.endpoint, null, false, false);
+        this.props.updateLogin(Object.assign({}, this.props.login, {
+            token: null,
+            loggedIn: false,
+            trying: false,
+        }));
+        this.props.updateUser(null);
     }
 
     render() {
-        if (this.props.login.logginIn) {
+        if (this.props.login.loggedIn) {
             return (
                 <div className="NavModule">
                     <div class="topnav">
@@ -98,7 +99,12 @@ class LoginModule extends Component {
 
     loginWithToken() {
         //this.props.updateLogin(this.input.value, null, true);
-        this.props.updateLogin(this.endpoint.value, this.token.value, false, true);
+        this.props.updateLogin(Object.assign({}, this.props.login, {
+            endpoint: this.endpoint.value,
+            token: this.token.value,
+            trying: true,
+            loggedIn: false,
+        }));
         var options = {
             url: this.endpoint.value + meEndpoint,
             headers: {
@@ -113,7 +119,10 @@ class LoginModule extends Component {
             }
             console.log(res);
             this.props.updateUser(res.body);
-            this.props.updateLogin(this.props.login.endpoint, this.props.login.token, true, false);
+            this.props.updateLogin(Object.assign({}, this.props.login, {
+                loggedIn: true,
+                trying: false,
+            }));
         });
     }
     // loginWithFacebook() {
@@ -153,6 +162,9 @@ class LoginModule extends Component {
                 <div id="id01" class="modal">
                     <form class="modal-content animate">
                         <div class="container">
+                            <h2>
+                                <a href="https://www.facebook.com/dialog/oauth?client_id=126632311262559&redirect_uri=http%3A%2F%2Fthehunt.circledig.com%2Fapi%2Flogin%2Ffacebook&scope=public_profile%2Cuser_status%2Cuser_about_me%2Cuser_birthday%2Cuser_friends" target="_app">
+                                Click to get token</a></h2>
                             <label><b>API Endpoint</b></label>
                             <input
                                 type="text"
