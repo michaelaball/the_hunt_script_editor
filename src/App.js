@@ -6,19 +6,10 @@ import 'react-table/react-table.css'
 
 import NavModule from './Nav.js';
 import Footer from './Footer.js';
-
-const ReactTable = require('react-table').default;
-const TableSelect = require('react-table-select');
-
-
-const CheckboxTable = checkboxHOC(ReactTable);
-
-const superagent = require('superagent');
+import ScriptBrowser from "./ScriptBrowser";
+import User from "./User.js"
 
 const defaultEndpoint = "http://localhost:8080/api";
-const loginEndpoint = "/login/facebook/dialog";
-const meEndpoint = "/users/me";
-const scriptsEndpoint = "/scripts";
 
 class App extends Component {
 
@@ -44,21 +35,41 @@ class App extends Component {
     }
 
     render() {
+        var content = null;
+        if (this.state.login.loggedIn) {
+            switch (this.state.nav.activeTab) {
+                case "profile":
+                    content = (
+                        <User
+                            user={this.state.user}/>
+                    );
+                    break;
+                case "scripts":
+                    content = (
+                        <ScriptBrowser
+                            scripts={this.state.scripts}
+                            updateScripts={this.updateScripts}
+                            login={this.state.login}/>
+                    );
+                    break;
+            }
+        }
         return (
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h1 className="App-title">Welcome to The Hunt Lua Script Editor</h1>
                 </header>
-                <NavModule
-                    nav={this.state.nav}
-                    login={this.state.login}
-                    user={this.state.user}
-                    scripts={this.state.scripts}
-                    updateNav={this.updateNav}
-                    updateLogin={this.updateLogin}
-                    updateUser={this.updateUser}
-                    updateScripts={this.updateScripts}/>
+                <div className="NavModule">
+                    <NavModule
+                        nav={this.state.nav}
+                        login={this.state.login}
+                        updateNav={this.updateNav}
+                        updateLogin={this.updateLogin}
+                        updateUser={this.updateUser}/>
+
+                </div>
+                <div className="content">{content}</div>
                 <Footer
                     login={this.state.login}
                     user={this.state.user}/>
