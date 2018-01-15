@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const request = require('request');
+const superagent = require('superagent');
+
 const defaultEndpoint = "http://localhost:8080/api";
 const loginEndpoint = "/login/facebook/dialog";
 const meEndpoint = "/users/me";
@@ -105,52 +106,21 @@ class LoginModule extends Component {
             trying: true,
             loggedIn: false,
         }));
-        var options = {
-            url: this.endpoint.value + meEndpoint,
-            headers: {
-                api_key: this.token.value,
-            },
-            json: true,
-        }
-        request(options,
-            (err, res, body) => {
-            if (err || res.statusCode !== 200) {
-                return console.log(err);
-            }
-            console.log(res);
-            this.props.updateUser(res.body);
-            this.props.updateLogin(Object.assign({}, this.props.login, {
-                loggedIn: true,
-                trying: false,
-            }));
-        });
+
+        superagent.get(this.endpoint.value + meEndpoint)
+            .set("api_key", this.token.value)
+            .end((err, res) => {
+                if (err || res.statusCode !== 200) {
+                    return console.log(err);
+                }
+                console.log(res);
+                this.props.updateUser(res.body);
+                this.props.updateLogin(Object.assign({}, this.props.login, {
+                    loggedIn: true,
+                    trying: false,
+                }));
+            });
     }
-    // loginWithFacebook() {
-    //     var options = {
-    //         url: this.props.login.endpoint + loginEndpoint,
-    //         headers: {},
-    //         json: true,
-    //     }
-    //     request(options,
-    //         (err, res, body) => {
-    //             if (err || res.statusCode !== 200) {
-    //                 return console.log(err);
-    //             }
-    //             console.log(res);
-    //             var options = {
-    //                 url: res.body.message,
-    //                 headers: {},
-    //                 json: true,
-    //             }
-    //             request(options,
-    //                 (err, res, body) => {
-    //                     if (err || res.statusCode !== 200) {
-    //                         return console.log(err);
-    //                     }
-    //                     console.log(res);
-    //                 });
-    //         });
-    //}
 
     render() {
         return (
