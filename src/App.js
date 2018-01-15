@@ -292,16 +292,14 @@ class ScriptBrowser extends Component {
     }
 
 
-    getColumns(data)
-    {
+    getColumns(data) {
         const columns = [];
-        if (data.length === 0 ) {
+        if (data.length === 0) {
             return columns;
         }
         const sample = data[0];
-        Object.keys(sample).forEach((key)=>{
-            if(key!=='_id')
-            {
+        Object.keys(sample).forEach((key) => {
+            if (key !== '_id') {
                 columns.push({
                     accessor: key,
                     Header: key,
@@ -332,7 +330,7 @@ class ScriptBrowser extends Component {
     }
 
     render() {
-        const { toggleSelection, toggleAll, isSelected, logSelection } = this;
+        const {toggleSelection, toggleAll, isSelected, logSelection} = this;
         const checkboxProps = {
             isSelected,
             toggleSelection,
@@ -340,27 +338,23 @@ class ScriptBrowser extends Component {
             selectType: 'checkbox',
         };
         return (
-            <div>
-                <table>
-                    <tr>
-                        <td>id</td>
-                        <td>name</td>
-                    </tr>
-                    {this.props.scripts.map((item, index) => (
-                        <tr>
-                            <td>{item.id}</td>
-                            <td>{item.name}</td>
-                        </tr>
-                    ))}
-                </table>
-                <CheckboxTable
-                    ref={(r)=>this.checkboxTable=r}
-                    data={this.props.scripts}
-                    columns={this.getColumns(this.props.scripts)}
-                    defaultPageSize={10}
-                    className="-striped -highlight"
+            <div style={{height:'100%'}}>
+                <div style={{width: '100%'}}>
+                    <div style={{float: 'left', width: '60%'}}>
+                        <CheckboxTable
+                            ref={(r) => this.checkboxTable = r}
+                            style={{height: '100%'}}
+                            data={this.props.scripts}
+                            columns={this.getColumns(this.props.scripts)}
+                            defaultPageSize={10}
+                            className="-striped -highlight"
+                            {...checkboxProps}/>
+                    </div>
+                    <div style={{float: 'right'}}>
 
-                    {...checkboxProps}/>
+                    </div>
+                </div>
+
             </div>
         );
     }
