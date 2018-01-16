@@ -27,6 +27,7 @@ class TabbedEditor extends Component {
                             <Editor
                                 codemirrorhack={0}
                                 script={script}
+                                editorModification={this.props.editorModification}
                             />
                         </TabPanel>
                     )

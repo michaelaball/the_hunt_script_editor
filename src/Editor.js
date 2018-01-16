@@ -13,6 +13,10 @@ class Editor extends Component {
         super(props);
     }
 
+    onSourceModified() {
+
+    }
+
     render() {
         var options = {
             lineWrapping: false,
@@ -25,7 +29,9 @@ class Editor extends Component {
                     ref="editor"
                     key={this.props.codemirrorhack}
                     value={this.props.script.source}
-                    onChange={this.updateCode}
+                    onChange={(code)=>this.props.editorModification(Object.assign({}, this.props.script, {
+                        source: code,
+                    }))}
                     options={options}
                     autoFocus={true} />
             </div>
