@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import checkboxHOC from 'react-table/lib/hoc/selectTable';
 import 'react-table/react-table.css'
+import ScriptDetail from "./ScriptDetail";
 
 const ReactTable = require('react-table').default;
 const TableSelect = require('react-table-select');
@@ -20,12 +21,13 @@ class ScriptBrowser extends Component {
     }
 
 
-    getColumns(data) {
+    getColumns() {
+        const sample = {
+            id: null,
+            ownerID: null,
+            name: null,
+        };
         const columns = [];
-        if (data.length === 0) {
-            return columns;
-        }
-        const sample = data[0];
         Object.keys(sample).forEach((key) => {
             if (key !== '_id') {
                 columns.push({
@@ -68,18 +70,19 @@ class ScriptBrowser extends Component {
         return (
             <div style={{height:'100%'}}>
                 <div style={{width: '100%'}}>
-                    <div style={{float: 'left', width: '60%'}}>
+                    <div style={{float: 'left', width: '60%', marginBottom: '60px'}}>
                         <CheckboxTable
                             ref={(r) => this.checkboxTable = r}
                             style={{height: '100%'}}
                             data={this.props.scripts}
                             columns={this.getColumns(this.props.scripts)}
-                            defaultPageSize={10}
+                            defaultPageSize={20}
                             className="-striped -highlight"
                             {...checkboxProps}/>
                     </div>
-                    <div style={{float: 'right'}}>
-
+                    <div style={{float: 'right', width: '40%'}}>
+                        <ScriptDetail
+                            name={"test"}/>
                     </div>
                 </div>
 

@@ -129,6 +129,11 @@ span.psw {
   }
 }
 
+.content {
+  margin-bottom: 300px;
+  clear: both;
+}
+
 .footer {
   position: fixed;
   left: 0;
