@@ -58,6 +58,7 @@ class App extends Component {
                             updateScriptBrowser={this.updateScriptBrowser}
                             login={this.state.login}/>
                     );
+                    break;
                 case "editor":
                     content = (
                         <Editor/>
