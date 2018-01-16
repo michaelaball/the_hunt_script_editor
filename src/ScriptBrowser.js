@@ -88,7 +88,21 @@ class ScriptBrowser extends Component {
     }
 
     onClickDelete() {
-
+        const deleteID = this.props.scriptBrowser.selectedKey;
+        superagent.delete(this.props.login.endpoint + scriptsEndpoint)
+            .set("api_key", this.props.login.token)
+            .query({id: deleteID})
+            .end((err, res) => {
+                if (err || res.statusCode !== 200) {
+                    return console.log(err);
+                }
+                console.log(res);
+                const data = this.props.scripts.filter(script => script.id !== deleteID);
+                this.props.updateScriptBrowser({
+                    selectedKey: null,
+                });
+                this.props.updateScripts(data);
+            });
     }
 
     onClickRefresh() {
