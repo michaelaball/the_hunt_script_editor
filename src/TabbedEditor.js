@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import 'react-tabs/style/react-tabs.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Editor from "./Editor";
 
 class TabbedEditor extends Component {
     constructor(props) {
@@ -21,7 +22,14 @@ class TabbedEditor extends Component {
                     })}
                 </TabList>
                 {this.props.tabbedEditor.openTabs.map((script, index) => {
-                    return (<TabPanel><h2>{script.description}</h2></TabPanel>)
+                    return (
+                        <TabPanel>
+                            <Editor
+                                codemirrorhack={0}
+                                script={script}
+                            />
+                        </TabPanel>
+                    )
                 })}
             </Tabs>
         );
