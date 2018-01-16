@@ -41,6 +41,7 @@ class App extends Component {
         this.updateScripts = this.updateScripts.bind(this);
         this.updateScriptBrowser = this.updateScriptBrowser.bind(this);
         this.openTabForScript = this.openTabForScript.bind(this);
+        this.switchEditorTab = this.switchEditorTab.bind(this);
     }
 
     render() {
@@ -67,7 +68,8 @@ class App extends Component {
                 case "editor":
                     content = (
                         <TabbedEditor
-                            tabbedEditor={this.state.tabbedEditor}/>
+                            tabbedEditor={this.state.tabbedEditor}
+                            switchEditorTab={this.switchEditorTab}/>
                     );
                     break;
             }
@@ -152,6 +154,14 @@ class App extends Component {
                 })
             });
         }
+    }
+
+    switchEditorTab(script) {
+        this.setState({
+            tabbedEditor: Object.assign({}, this.state.tabbedEditor, {
+                activeTabID: script.id,
+            })
+        });
     }
 }
 
