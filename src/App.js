@@ -66,7 +66,8 @@ class App extends Component {
                     break;
                 case "editor":
                     content = (
-                        <TabbedEditor/>
+                        <TabbedEditor
+                            tabbedEditor={this.state.tabbedEditor}/>
                     );
                     break;
             }
@@ -128,6 +129,9 @@ class App extends Component {
     openTabForScript(script) {
         if (this.state.tabbedEditor.openTabs.find(element => element.id === script.id)) {
             this.setState({
+                nav: Object.assign({}, this.state.nav, {
+                    activeTab: "editor",
+                }),
                 tabbedEditor: Object.assign({}, this.state.tabbedEditor, {
                     activeTabID: script.id,
                 })
