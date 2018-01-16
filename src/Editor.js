@@ -31,6 +31,7 @@ class Editor extends Component {
                     value={this.props.script.source}
                     onChange={(code)=>this.props.editorModification(Object.assign({}, this.props.script, {
                         source: code,
+                        modified: true,
                     }))}
                     options={options}
                     autoFocus={true} />

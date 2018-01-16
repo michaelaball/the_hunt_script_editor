@@ -27,7 +27,11 @@ class TabbedEditor extends Component {
                     onSelect={tabIndex => this.props.switchEditorTab(this.props.tabbedEditor.openTabs[tabIndex])}>
                     <TabList>
                         {this.props.tabbedEditor.openTabs.map((script, index) => {
-                            return (<Tab>{script.name + " (" + script.id + ")"}</Tab>)
+                            if (script.modified) {
+                                return (<Tab><b>{script.name + " (" + script.id + ")"}</b></Tab>)
+                            } else {
+                                return (<Tab>{script.name + " (" + script.id + ")"}</Tab>)
+                            }
                         })}
                     </TabList>
                     {this.props.tabbedEditor.openTabs.map((script, index) => {
