@@ -29,6 +29,10 @@ class Nav extends Component {
                        onClick={() => {
                            this.props.updateNav(Object.assign({}, this.props.nav, {activeTab: "scripts"}))
                        }}>Scripts</a>
+                    <a class={this.props.nav.activeTab === "editor" ? "active" : ""}
+                       onClick={() => {
+                           this.props.updateNav(Object.assign({}, this.props.nav, {activeTab: "editor"}))
+                       }}>Editor</a>
                     <a href="#contact" onClick={this.onClickLogout}>Logout</a>
                 </div>
             );

@@ -6,6 +6,7 @@ import NavModule from './Nav.js';
 import Footer from './Footer.js';
 import ScriptBrowser from "./ScriptBrowser";
 import User from "./User.js"
+import Editor from "./Editor.js";
 
 const defaultEndpoint = "http://localhost:8080/api";
 
@@ -56,6 +57,10 @@ class App extends Component {
                             updateScripts={this.updateScripts}
                             updateScriptBrowser={this.updateScriptBrowser}
                             login={this.state.login}/>
+                    );
+                case "editor":
+                    content = (
+                        <Editor/>
                     );
                     break;
             }
