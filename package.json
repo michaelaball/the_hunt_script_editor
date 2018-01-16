@@ -11,6 +11,7 @@
     "react-scripts": "1.0.17",
     "react-table": "^6.7.6",
     "react-table-select": "^0.2.7",
+    "react-tabs": "^2.2.1",
     "request": "^2.81.0",
     "superagent": "^3.8.2"
   },
