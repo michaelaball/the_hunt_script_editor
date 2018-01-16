@@ -84,7 +84,9 @@ class ScriptBrowser extends Component {
     }
 
     onClickEdit() {
-
+        var script = this.props.scripts.find(script => script.id === this.props.scriptBrowser.selectedKey);
+        console.log("trying to open tab for: "+script);
+        this.props.openTabForScript(script);
     }
 
     onClickDelete() {

@@ -31,12 +31,16 @@ class App extends Component {
                 selectedID: null,
                 codemirrorhack: 0,
             },
+            tabbedEditor: {
+                openTabs: [],
+            },
         }
         this.updateNav = this.updateNav.bind(this);
         this.updateLogin = this.updateLogin.bind(this);
         this.updateUser = this.updateUser.bind(this);
         this.updateScripts = this.updateScripts.bind(this);
         this.updateScriptBrowser = this.updateScriptBrowser.bind(this);
+        this.openTabForScript = this.openTabForScript.bind(this);
     }
 
     render() {
@@ -56,6 +60,7 @@ class App extends Component {
                             scriptBrowser={this.state.scriptBrowser}
                             updateScripts={this.updateScripts}
                             updateScriptBrowser={this.updateScriptBrowser}
+                            openTabForScript={this.openTabForScript}
                             login={this.state.login}/>
                     );
                     break;
@@ -118,6 +123,31 @@ class App extends Component {
         this.setState({
             scriptBrowser,
         });
+    }
+
+    openTabForScript(script) {
+        if (this.state.tabbedEditor.openTabs.find(element => element.id === script.id)) {
+            this.setState({
+                tabbedEditor: Object.assign({}, this.state.tabbedEditor, {
+                    activeTabID: script.id,
+                })
+            });
+        } else {
+            this.setState({
+                nav: Object.assign({}, this.state.nav, {
+                    activeTab: "editor",
+                }),
+                tabbedEditor: Object.assign({}, this.state.tabbedEditor, {
+                    activeTabID: script.id,
+                    openTabs: this.state.tabbedEditor.openTabs.concat([
+                        Object.assign({}, script, {
+                            modified: false,
+                            saving: false,
+                        })
+                    ])
+                })
+            });
+        }
     }
 }
 
