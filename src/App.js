@@ -25,11 +25,16 @@ class App extends Component {
             },
             user: null,
             scripts: [],
+            scriptBrowser: {
+                selectedKey: null,
+                selectedID: null,
+            },
         }
         this.updateNav = this.updateNav.bind(this);
         this.updateLogin = this.updateLogin.bind(this);
         this.updateUser = this.updateUser.bind(this);
         this.updateScripts = this.updateScripts.bind(this);
+        this.updateScriptBrowser = this.updateScriptBrowser.bind(this);
     }
 
     render() {
@@ -46,7 +51,9 @@ class App extends Component {
                     content = (
                         <ScriptBrowser
                             scripts={this.state.scripts}
+                            scriptBrowser={this.state.scriptBrowser}
                             updateScripts={this.updateScripts}
+                            updateScriptBrowser={this.updateScriptBrowser}
                             login={this.state.login}/>
                     );
                     break;
@@ -97,6 +104,12 @@ class App extends Component {
     updateScripts(scripts) {
         this.setState({
             scripts: scripts,
+        });
+    }
+
+    updateScriptBrowser(scriptBrowser) {
+        this.setState({
+            scriptBrowser,
         });
     }
 }

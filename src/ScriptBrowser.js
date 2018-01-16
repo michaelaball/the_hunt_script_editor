@@ -59,6 +59,18 @@ class ScriptBrowser extends Component {
             });
     }
 
+    isSelected = (key) => {
+        return this.props.scriptBrowser.selectedKey === key;
+    };
+
+    toggleSelection = (key, shift, row) => {
+        this.props.updateScriptBrowser(
+            Object.assign({}, this.props.scriptBrowser, {
+                selectedKey: key,
+            })
+        );
+    };
+
     render() {
         const {toggleSelection, toggleAll, isSelected, logSelection} = this;
         const checkboxProps = {
@@ -67,8 +79,17 @@ class ScriptBrowser extends Component {
             toggleAll,
             selectType: 'checkbox',
         };
+        const script=this.props.scripts.find((element) => {
+            return element.id === this.props.scriptBrowser.selectedKey
+        });
+        const scriptDetail = (script === undefined) ? null :
+            <ScriptDetail
+                script={script}
+            />;
+        console.log("script: "+script);
+
         return (
-            <div style={{height:'100%'}}>
+            <div style={{height: '100%'}}>
                 <div style={{width: '100%'}}>
                     <div style={{float: 'left', width: '60%', marginBottom: '60px'}}>
                         <CheckboxTable
@@ -81,8 +102,7 @@ class ScriptBrowser extends Component {
                             {...checkboxProps}/>
                     </div>
                     <div style={{float: 'right', width: '40%'}}>
-                        <ScriptDetail
-                            name={"test"}/>
+                        {scriptDetail}
                     </div>
                 </div>
 
