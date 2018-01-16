@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import 'react-tabs/style/react-tabs.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-class Editor extends Component {
+class TabbedEditor extends Component {
     render () {
         //return null;
         return (
@@ -23,4 +23,4 @@ class Editor extends Component {
     }
 }
 
-export default Editor
+export default TabbedEditor

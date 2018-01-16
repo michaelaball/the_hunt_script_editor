@@ -6,7 +6,7 @@ import NavModule from './Nav.js';
 import Footer from './Footer.js';
 import ScriptBrowser from "./ScriptBrowser";
 import User from "./User.js"
-import Editor from "./Editor.js";
+import TabbedEditor from "./TabbedEditor.js";
 
 const defaultEndpoint = "http://localhost:8080/api";
 
@@ -61,7 +61,7 @@ class App extends Component {
                     break;
                 case "editor":
                     content = (
-                        <Editor/>
+                        <TabbedEditor/>
                     );
                     break;
             }
