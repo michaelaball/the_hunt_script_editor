@@ -17,6 +17,12 @@ class ScriptBrowser extends Component {
         super(props);
         this.refreshScripts = this.refreshScripts.bind(this);
         this.getColumns = this.getColumns.bind(this);
+
+        this.onClickNew = this.onClickNew.bind(this);
+        this.onClickEdit = this.onClickEdit.bind(this);
+        this.onClickDelete = this.onClickDelete.bind(this);
+        this.onClickRefresh = this.onClickRefresh.bind(this);
+
         this.refreshScripts()
     }
 
@@ -67,9 +73,27 @@ class ScriptBrowser extends Component {
         this.props.updateScriptBrowser(
             Object.assign({}, this.props.scriptBrowser, {
                 selectedKey: key,
+                codemirrorhack: this.props.scriptBrowser.codemirrorhack+1,
             })
         );
     };
+
+
+    onClickNew() {
+
+    }
+
+    onClickEdit() {
+
+    }
+
+    onClickDelete() {
+
+    }
+
+    onClickRefresh() {
+        this.refreshScripts();
+    }
 
     render() {
         const {toggleSelection, toggleAll, isSelected, logSelection} = this;
@@ -85,6 +109,7 @@ class ScriptBrowser extends Component {
         const scriptDetail = (script === undefined) ? null :
             <ScriptDetail
                 script={script}
+                codemirrorhack={this.props.scriptBrowser.codemirrorhack}
             />;
         console.log("script: "+script);
 
@@ -92,6 +117,12 @@ class ScriptBrowser extends Component {
             <div style={{height: '100%'}}>
                 <div style={{width: '100%'}}>
                     <div style={{float: 'left', width: '60%', marginBottom: '60px'}}>
+                        <div align="left">
+                            <button onClick={this.onClickNew}>New</button>
+                            <button onClick={this.onClickEdit} disabled={this.props.scriptBrowser.selectedKey===null ? "disabled" : null}>Edit</button>
+                            <button onClick={this.onClickDelete} disabled={this.props.scriptBrowser.selectedKey===null ? "disabled" : null}>Delete</button>
+                            <button onClick={this.onClickRefresh}>Refresh</button>
+                        </div>
                         <CheckboxTable
                             ref={(r) => this.checkboxTable = r}
                             style={{height: '100%'}}

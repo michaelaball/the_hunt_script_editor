@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Login.css';
 
 const superagent = require('superagent');
 
@@ -73,6 +74,7 @@ class LoginModule extends Component {
                                 disabled={this.props.login.trying ? "disabled" : ""}
                                 required/>
                             <button
+                                className="loginButton"
                                 type="button"
                                 onClick={this.loginWithToken}
                                 disabled={this.props.login.trying ? "disabled" : ""}>

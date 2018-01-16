@@ -30,8 +30,8 @@ class ScriptDetail extends Component {
                     <p><b>Owner:</b> {this.props.script.ownerID}</p>
                     <p><b>Description:</b> {this.props.script.description}</p>
                     <p><b>Source:</b></p>
-                    <p><Codemirror ref="editor"
-                        value={this.props.script.source+this.props.script.source+this.props.script.source+this.props.script.source+this.props.script.source} onChange={this.updateCode} options={options} autoFocus={true} /></p>
+                    <p><Codemirror ref="editor" key={this.props.codemirrorhack}
+                        value={this.props.script.source} onChange={this.updateCode} options={options} autoFocus={true} /></p>
                 </div>
             </div>
         );

@@ -28,6 +28,7 @@ class App extends Component {
             scriptBrowser: {
                 selectedKey: null,
                 selectedID: null,
+                codemirrorhack: 0,
             },
         }
         this.updateNav = this.updateNav.bind(this);
