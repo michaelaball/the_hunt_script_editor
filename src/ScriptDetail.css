@@ -3,3 +3,10 @@
     align-content: center;
     font-size: 17px;
 }
+
+.CodeMirror {
+    min-height:100%;
+    height: auto !important;
+    border: 1px solid #eee;
+    margin-bottom: 60px;
+}

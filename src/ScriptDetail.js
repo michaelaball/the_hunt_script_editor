@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
 import './ScriptDetail.css';
 
-import checkboxHOC from 'react-table/lib/hoc/selectTable';
 import 'react-table/react-table.css'
 
-const ReactTable = require('react-table').default;
-const TableSelect = require('react-table-select');
-const CheckboxTable = checkboxHOC(ReactTable);
+var Codemirror = require('react-codemirror');
 
-const superagent = require('superagent');
+require('codemirror/lib/codemirror.css');
 
-const scriptsEndpoint = "/scripts";
+require('codemirror/mode/lua/lua');
 
 class ScriptDetail extends Component {
 
@@ -19,13 +16,22 @@ class ScriptDetail extends Component {
     }
 
     render() {
+        var options = {
+            lineWrapping: true,
+            lineNumbers: true,
+            readOnly: true,
+            mode: 'lua',
+        };
         return (
             <div class="scriptdetail">
                 <h2>{this.props.script.name}</h2>
                 <div align="left">
+                    <p><b>ID:</b> {this.props.script.id}</p>
                     <p><b>Owner:</b> {this.props.script.ownerID}</p>
                     <p><b>Description:</b> {this.props.script.description}</p>
-                    <p><b>Source:</b> {this.props.script.source}</p>
+                    <p><b>Source:</b></p>
+                    <p><Codemirror ref="editor"
+                        value={this.props.script.source+this.props.script.source+this.props.script.source+this.props.script.source+this.props.script.source} onChange={this.updateCode} options={options} autoFocus={true} /></p>
                 </div>
             </div>
         );

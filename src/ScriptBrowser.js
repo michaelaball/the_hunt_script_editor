@@ -77,7 +77,7 @@ class ScriptBrowser extends Component {
             isSelected,
             toggleSelection,
             toggleAll,
-            selectType: 'checkbox',
+            selectType: 'radio',
         };
         const script=this.props.scripts.find((element) => {
             return element.id === this.props.scriptBrowser.selectedKey
