@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import checkboxHOC from 'react-table/lib/hoc/selectTable';
 import 'react-table/react-table.css'
 import ScriptDetail from "./ScriptDetail";
+import EditInfoModal from "./EditInfoModal";
 
 const ReactTable = require('react-table').default;
 const TableSelect = require('react-table-select');
@@ -60,7 +61,9 @@ class ScriptBrowser extends Component {
 
 
     onClickNew() {
-
+        this.props.updateScriptBrowser({
+            newDialogOpen: true,
+        });
     }
 
     onClickEdit() {
@@ -112,6 +115,25 @@ class ScriptBrowser extends Component {
         return (
             <div style={{height: '100%'}}>
                 <div style={{width: '100%'}}>
+                    <EditInfoModal
+                        isOpen={this.props.newDialogOpen}
+                        name=""
+                        description=""
+                        savePending={false}
+                        save={(name, description) => {
+                            this.props.updateScriptBrowser({
+                                newDialogOpen: false,
+                            });
+                            this.props.saveNewScript({
+                                name: name,
+                                description: description,
+                                source: "",
+                            });
+                        }}
+                        cancel={() => {
+                            console.log("cancel pressed");
+                        }}
+                    />
                     <div style={{float: 'left', width: '60%', marginBottom: '60px'}}>
                         <div align="left">
                             <button onClick={this.onClickNew}>New</button>

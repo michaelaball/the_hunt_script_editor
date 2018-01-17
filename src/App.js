@@ -30,6 +30,7 @@ class App extends Component {
             user: null,
             scripts: [],
             scriptBrowser: {
+                newDialogOpen: false,
                 selectedKey: null,
                 selectedID: null,
                 codemirrorhack: 0,
@@ -49,6 +50,7 @@ class App extends Component {
         this.editorModification = this.editorModification.bind(this);
         this.refreshScripts = this.refreshScripts.bind(this);
         this.saveEditorScript = this.saveEditorScript.bind(this);
+        this.saveNewScript = this.saveNewScript.bind(this);
     }
 
     render() {
@@ -66,10 +68,12 @@ class App extends Component {
                         <ScriptBrowser
                             scripts={this.state.scripts}
                             scriptBrowser={this.state.scriptBrowser}
+                            newDialogOpen={this.state.scriptBrowser.newDialogOpen}
                             updateScripts={this.updateScripts}
                             updateScriptBrowser={this.updateScriptBrowser}
                             openTabForScript={this.openTabForScript}
                             refreshScripts={this.refreshScripts}
+                            saveNewScript={this.saveNewScript}
                             login={this.state.login}/>
                     );
                     break;
@@ -206,6 +210,41 @@ class App extends Component {
                     }
                 });
                 this.updateScripts(data);
+            });
+    }
+
+    saveNewScript(script) {
+        superagent.post(this.state.login.endpoint + scriptsEndpoint)
+            .set("api_key", this.state.login.token)
+            .send({
+                name: script.name,
+                ownerID: this.state.user.id,
+                description: script.description,
+                source: script.source,
+            })
+            .end((err, res) => {
+                if (err || res.statusCode !== 200) {
+                    console.log(err);
+                    alert("Could not able to save new script!");
+                    return;
+                }
+                console.log(res);
+                this.setState({
+                    scripts: this.state.scripts.concat([res.body]),
+                    tabbedEditor: {
+                        activeTabID: script.id,
+                        openTabs: this.state.tabbedEditor.openTabs.concat([
+                            Object.assign({}, res.body, {
+                                infoDialogOpen: false,
+                                modified: false,
+                                saving: false,
+                            })
+                        ])
+                    },
+                    nav: {
+                        activeTab: "editor",
+                    },
+                });
             });
     }
 
