@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import EditInfoModal from "./EditInfoModal";
 
 import './ScriptDetail.css';
 
@@ -25,14 +26,36 @@ class Editor extends Component {
         };
         return (
             <div class="scriptdetail" align="left">
+                <EditInfoModal
+                    isOpen={this.props.script.infoDialogOpen}
+                    name={this.props.script.name}
+                    description={this.props.script.description}
+                    savePending={false}
+                    save={(name, description) => {
+                        this.props.editorModification({
+                            id: this.props.script.id,
+                            name: name,
+                            description: description,
+                            modified: true,
+                            infoDialogOpen: false,
+                        });
+                    }}
+                    cancel={() => {
+                        this.props.editorModification({
+                            id: this.props.script.id,
+                            infoDialogOpen: false,
+                        });
+                    }}
+                />
                 <Codemirror
                     ref="editor"
                     key={this.props.codemirrorhack}
                     value={this.props.script.source}
-                    onChange={(code)=>this.props.editorModification(Object.assign({}, this.props.script, {
+                    onChange={(code)=>this.props.editorModification({
+                        id: this.props.script.id,
                         source: code,
                         modified: true,
-                    }))}
+                    })}
                     options={options}
                     autoFocus={true} />
             </div>

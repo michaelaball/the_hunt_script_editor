@@ -147,6 +147,7 @@ class App extends Component {
                 activeTabID: script.id,
                 openTabs: this.state.tabbedEditor.openTabs.concat([
                     Object.assign({}, script, {
+                        infoDialogOpen: false,
                         modified: false,
                         saving: false,
                     })
@@ -165,10 +166,12 @@ class App extends Component {
     }
 
     editorModification(script) {
+        console.log("editor modification"+script);
         this.updateTabbedEditor({
             openTabs: this.state.tabbedEditor.openTabs.map(element => {
                 if (element.id === script.id) {
-                    return Object.assign({}, script);
+                    console.log("editor modification, found the tab: "+script);
+                    return Object.assign({}, element, script);
                 } else {
                     return element;
                 }

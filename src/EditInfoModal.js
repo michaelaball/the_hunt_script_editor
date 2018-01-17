@@ -10,32 +10,34 @@ class EditInfoModal extends Component {
     render() {
         return (
             <ReactModal
-                isOpen={this.props.script.modif}>
+                isOpen={this.props.isOpen}>
                 <div class="container">
                     <label><b>Name:</b></label>
                     <input
                         type="text"
                         placeholder="Enter script name"
-                        defaultValue={this.props.login.endpoint}
+                        defaultValue={this.props.name}
                         name="uname"
-                        ref={(input) => this.name = input}
-                        disabled={this.props.login.trying ? "disabled" : ""}
+                        ref={(input) => this.nameInput = input}
                         required/>
-                    <label><b>Token</b></label>
+                    <label><b>Description:</b></label>
                     <input
                         type="text"
-                        placeholder="Enter Token"
-                        defaultValue={this.props.login.token}
+                        placeholder="Description"
+                        defaultValue={this.props.description}
                         name="token"
-                        ref={(input) => this.token = input}
-                        disabled={this.props.login.trying ? "disabled" : ""}
+                        ref={(input) => this.descriptionInput = input}
+                        disabled={this.props.savePending ? "disabled" : ""}
                         required/>
                     <button
-                        className="loginButton"
                         type="button"
-                        onClick={this.loginWithToken}
-                        disabled={this.props.login.trying ? "disabled" : ""}>
-                        Login with Token
+                        onClick={() => this.props.save(this.nameInput.value, this.descriptionInput.value)}>
+                        Save
+                    </button>
+                    <button
+                        type="button"
+                        onClick={this.props.cancel}>
+                        Cancel
                     </button>
 
                 </div>

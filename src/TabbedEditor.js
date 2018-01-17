@@ -6,16 +6,32 @@ import Editor from "./Editor";
 class TabbedEditor extends Component {
     constructor(props) {
         super(props);
+        this.activeTab = this.activeTab.bind(this);
+        this.activeTabIndex = this.activeTabIndex.bind(this);
+        this.onClickInfo = this.onClickInfo.bind(this);
+    }
+
+    activeTab() {
+        return this.props.tabbedEditor.openTabs.find((element) => element.id === this.props.tabbedEditor.activeTabID)
+    }
+
+    activeTabIndex() {
+        return this.props.tabbedEditor.openTabs.indexOf(this.activeTab());
+    }
+
+    onClickInfo() {
+        this.props.editorModification({
+            id: this.activeTab().id,
+            infoDialogOpen: true,
+        });
     }
 
     render() {
-        var selectedIndex = this.props.tabbedEditor.openTabs.indexOf(
-            this.props.tabbedEditor.openTabs.find((element) => element.id === this.props.tabbedEditor.activeTabID)
-        );
+        var selectedIndex = this.activeTabIndex();
         return (
             <div align="left">
                 <div>
-                    <button>Info</button>
+                    <button onClick={this.onClickInfo}>Info</button>
                     <button>Deployments</button>
                     <button>Run</button>
                     <button>Save</button>
