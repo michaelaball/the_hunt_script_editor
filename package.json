@@ -8,11 +8,12 @@
     "react": "^16.2.0",
     "react-codemirror": "^1.0.0",
     "react-dom": "^16.2.0",
+    "react-modal": "^3.1.11",
     "react-scripts": "1.0.17",
     "react-table": "^6.7.6",
     "react-table-select": "^0.2.7",
     "react-tabs": "^2.2.1",
-    "request": "^2.81.0",
+    "request": "^2.83.0",
     "superagent": "^3.8.2"
   },
   "scripts": {

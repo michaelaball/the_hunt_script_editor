@@ -40,6 +40,7 @@ class App extends Component {
         this.updateUser = this.updateUser.bind(this);
         this.updateScripts = this.updateScripts.bind(this);
         this.updateScriptBrowser = this.updateScriptBrowser.bind(this);
+        this.updateTabbedEditor = this.updateTabbedEditor.bind(this);
         this.openTabForScript = this.openTabForScript.bind(this);
         this.switchEditorTab = this.switchEditorTab.bind(this);
         this.editorModification = this.editorModification.bind(this);
@@ -101,7 +102,7 @@ class App extends Component {
 
     updateNav(nav) {
         this.setState({
-            nav
+            nav: Object.assign({}, this.state.nav, nav),
         });
     }
 
@@ -114,7 +115,7 @@ class App extends Component {
     updateLogin(login) {
         console.log(login);
         this.setState({
-            login
+            login: login
         });
     }
 
@@ -126,58 +127,52 @@ class App extends Component {
 
     updateScriptBrowser(scriptBrowser) {
         this.setState({
-            scriptBrowser,
+            scriptBrowser: Object.assign({}, this.state.scriptBrowser, scriptBrowser),
+        });
+    }
+
+    updateTabbedEditor(tabbedEditor) {
+        this.setState({
+            tabbedEditor: Object.assign({}, this.state.tabbedEditor, tabbedEditor),
         });
     }
 
     openTabForScript(script) {
         if (this.state.tabbedEditor.openTabs.find(element => element.id === script.id)) {
-            this.setState({
-                nav: Object.assign({}, this.state.nav, {
-                    activeTab: "editor",
-                }),
-                tabbedEditor: Object.assign({}, this.state.tabbedEditor, {
-                    activeTabID: script.id,
-                })
+            this.updateTabbedEditor({
+                activeTabID: script.id,
             });
         } else {
-            this.setState({
-                nav: Object.assign({}, this.state.nav, {
-                    activeTab: "editor",
-                }),
-                tabbedEditor: Object.assign({}, this.state.tabbedEditor, {
-                    activeTabID: script.id,
-                    openTabs: this.state.tabbedEditor.openTabs.concat([
-                        Object.assign({}, script, {
-                            modified: false,
-                            saving: false,
-                        })
-                    ])
-                })
+            this.updateTabbedEditor({
+                activeTabID: script.id,
+                openTabs: this.state.tabbedEditor.openTabs.concat([
+                    Object.assign({}, script, {
+                        modified: false,
+                        saving: false,
+                    })
+                ])
             });
         }
+        this.updateNav({
+            activeTab: "editor",
+        });
     }
 
     switchEditorTab(script) {
-        this.setState({
-            tabbedEditor: Object.assign({}, this.state.tabbedEditor, {
-                activeTabID: script.id,
-            })
+        this.updateTabbedEditor({
+            activeTabID: script.id,
         });
     }
 
     editorModification(script) {
-        const tabbedEditor = this.state.tabbedEditor;
-        const scripts = tabbedEditor.openTabs;
-        const newTabbedEditor = Object.assign({}, tabbedEditor, {openTabs: scripts.map(element => {
-            if (element.id === script.id) {
-                return Object.assign({}, script);
-            } else {
-                return element;
-            }
-        })});
-        this.setState({
-            tabbedEditor: newTabbedEditor,
+        this.updateTabbedEditor({
+            openTabs: this.state.tabbedEditor.openTabs.map(element => {
+                if (element.id === script.id) {
+                    return Object.assign({}, script);
+                } else {
+                    return element;
+                }
+            })
         });
     }
 }
