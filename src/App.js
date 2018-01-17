@@ -9,6 +9,9 @@ import User from "./User.js"
 import TabbedEditor from "./TabbedEditor.js";
 
 const defaultEndpoint = "http://localhost:8080/api";
+const superagent = require('superagent');
+
+const scriptsEndpoint = "/scripts";
 
 class App extends Component {
 
@@ -44,6 +47,8 @@ class App extends Component {
         this.openTabForScript = this.openTabForScript.bind(this);
         this.switchEditorTab = this.switchEditorTab.bind(this);
         this.editorModification = this.editorModification.bind(this);
+        this.refreshScripts = this.refreshScripts.bind(this);
+        this.saveEditorScript = this.saveEditorScript.bind(this);
     }
 
     render() {
@@ -64,6 +69,7 @@ class App extends Component {
                             updateScripts={this.updateScripts}
                             updateScriptBrowser={this.updateScriptBrowser}
                             openTabForScript={this.openTabForScript}
+                            refreshScripts={this.refreshScripts}
                             login={this.state.login}/>
                     );
                     break;
@@ -72,7 +78,8 @@ class App extends Component {
                         <TabbedEditor
                             tabbedEditor={this.state.tabbedEditor}
                             switchEditorTab={this.switchEditorTab}
-                            editorModification={this.editorModification}/>
+                            editorModification={this.editorModification}
+                            saveEditorScript={this.saveEditorScript}/>
                     );
                     break;
             }
@@ -122,6 +129,9 @@ class App extends Component {
     updateScripts(scripts) {
         this.setState({
             scripts: scripts,
+            scriptBrowser: Object.assign({}, this.state.scriptBrowser, {
+                codemirrorhack: this.state.scriptBrowser.codemirrorhack + 1,
+            }),
         });
     }
 
@@ -177,6 +187,58 @@ class App extends Component {
                 }
             })
         });
+    }
+
+    refreshScripts() {
+        superagent.get(this.state.login.endpoint + scriptsEndpoint)
+            .set("api_key", this.state.login.token)
+            .end((err, res) => {
+                if (err || res.statusCode !== 200) {
+                    this.state.updateScripts([]);
+                    return console.log(err);
+                }
+                console.log(res);
+                const data = res.body.map((item) => {
+                    const _id = item.id;
+                    return {
+                        _id,
+                        ...item,
+                    }
+                });
+                this.updateScripts(data);
+            });
+    }
+
+    saveEditorScript(script) {
+        this.editorModification({
+            id: script.id,
+            saving: true,
+        });
+        superagent.post(this.state.login.endpoint + scriptsEndpoint)
+            .set("api_key", this.state.login.token)
+            .send({
+                id: script.id,
+                name: script.name,
+                ownerID: script.ownerID,
+                description: script.description,
+                source: script.source,
+            })
+            .end((err, res) => {
+                if (err || res.statusCode !== 200) {
+                    this.editorModification({
+                        id: script.id,
+                        saving: false,
+                    });
+                    return console.log(err);
+                }
+                console.log(res);
+                this.editorModification({
+                    id: script.id,
+                    saving: false,
+                    modified: false,
+                });
+                this.refreshScripts();
+            });
     }
 }
 

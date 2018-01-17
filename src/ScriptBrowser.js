@@ -15,15 +15,13 @@ const scriptsEndpoint = "/scripts";
 class ScriptBrowser extends Component {
     constructor(props) {
         super(props);
-        this.refreshScripts = this.refreshScripts.bind(this);
         this.getColumns = this.getColumns.bind(this);
 
         this.onClickNew = this.onClickNew.bind(this);
         this.onClickEdit = this.onClickEdit.bind(this);
         this.onClickDelete = this.onClickDelete.bind(this);
         this.onClickRefresh = this.onClickRefresh.bind(this);
-
-        this.refreshScripts()
+        this.props.refreshScripts();
     }
 
 
@@ -45,25 +43,7 @@ class ScriptBrowser extends Component {
         return columns;
     }
 
-    refreshScripts() {
-        superagent.get(this.props.login.endpoint + scriptsEndpoint)
-            .set("api_key", this.props.login.token)
-            .end((err, res) => {
-                if (err || res.statusCode !== 200) {
-                    this.props.updateScripts([]);
-                    return console.log(err);
-                }
-                console.log(res);
-                const data = res.body.map((item) => {
-                    const _id = item.id;
-                    return {
-                        _id,
-                        ...item,
-                    }
-                });
-                this.props.updateScripts(data);
-            });
-    }
+
 
     isSelected = (key) => {
         return this.props.scriptBrowser.selectedKey === key;
@@ -108,7 +88,7 @@ class ScriptBrowser extends Component {
     }
 
     onClickRefresh() {
-        this.refreshScripts();
+        this.props.refreshScripts();
     }
 
     render() {

@@ -34,7 +34,7 @@ class TabbedEditor extends Component {
                     <button onClick={this.onClickInfo}>Info</button>
                     <button>Deployments</button>
                     <button>Run</button>
-                    <button>Save</button>
+                    <button onClick={() => this.props.saveEditorScript(this.activeTab())}>Save</button>
                     <button>Revert</button>
                     <button>Close</button>
                 </div>
