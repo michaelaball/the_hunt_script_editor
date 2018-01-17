@@ -39,7 +39,7 @@ class ScriptBrowser extends Component {
                     Header: key,
                 })
             }
-        })
+        });
         return columns;
     }
 

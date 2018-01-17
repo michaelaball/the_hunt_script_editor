@@ -8,10 +8,12 @@ class EditInfoModal extends Component {
     }
 
     render() {
+        var modalStyles = {overlay: {zIndex: 30}};
         return (
             <ReactModal
+                style={ modalStyles }
                 isOpen={this.props.isOpen}>
-                <div class="container">
+                <div>
                     <label><b>Name:</b></label>
                     <input
                         type="text"

@@ -25,7 +25,7 @@ class Editor extends Component {
             mode: 'lua',
         };
         return (
-            <div class="scriptdetail" align="left">
+            <div align="left">
                 <EditInfoModal
                     isOpen={this.props.script.infoDialogOpen}
                     name={this.props.script.name}

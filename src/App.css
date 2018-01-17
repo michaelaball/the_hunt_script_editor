@@ -54,3 +54,7 @@ button {
   text-align: center;
   z-index: 10;
 }
+
+Codemirror {
+  z-index: 5;
+}
