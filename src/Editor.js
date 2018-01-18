@@ -49,12 +49,13 @@ class Editor extends Component {
                 />
                 <Codemirror
                     ref="editor"
-                    key={this.props.codemirrorhack}
+                    key={this.props.script.codemirrorhack}
                     value={this.props.script.source}
                     onChange={(code)=>this.props.editorModification({
                         id: this.props.script.id,
                         source: code,
                         modified: true,
+                        codemirrorhack: this.props.script.codemirrorhack,
                     })}
                     options={options}
                     autoFocus={true} />

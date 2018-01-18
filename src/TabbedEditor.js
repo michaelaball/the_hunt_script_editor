@@ -10,6 +10,7 @@ class TabbedEditor extends Component {
         this.activeTabIndex = this.activeTabIndex.bind(this);
         this.onClickInfo = this.onClickInfo.bind(this);
         this.onClickClose = this.onClickClose.bind(this);
+        this.onClickRevert = this.onClickRevert.bind(this);
     }
 
     activeTab() {
@@ -25,6 +26,18 @@ class TabbedEditor extends Component {
             id: this.activeTab().id,
             infoDialogOpen: true,
         });
+    }
+
+    onClickRevert() {
+        var activeTab = this.activeTab();
+        var activeTabID = this.props.tabbedEditor.activeTabID;
+        var unmodifiedScript = this.props.scripts.find((element) => element.id === activeTabID);
+        this.props.editorModification(Object.assign({}, unmodifiedScript, {
+            codemirrorhack: activeTab.codemirrorhack+1,
+            infoDialogOpen: false,
+            modified: false,
+            saving: false,
+        }));
     }
 
     onClickClose() {
@@ -54,7 +67,7 @@ class TabbedEditor extends Component {
                     <button>Deployments</button>
                     <button>Run</button>
                     <button onClick={() => this.props.saveEditorScript(this.activeTab())}>Save</button>
-                    <button>Revert</button>
+                    <button onClick={this.onClickRevert}>Revert</button>
                     <button onClick={this.onClickClose}>Close</button>
                 </div>
                 <Tabs
@@ -73,7 +86,6 @@ class TabbedEditor extends Component {
                         return (
                             <TabPanel>
                                 <Editor
-                                    codemirrorhack={0}
                                     script={script}
                                     editorModification={this.props.editorModification}
                                 />

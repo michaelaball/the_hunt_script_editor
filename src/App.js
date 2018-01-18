@@ -80,6 +80,7 @@ class App extends Component {
                 case "editor":
                     content = (
                         <TabbedEditor
+                            scripts={this.state.scripts}
                             tabbedEditor={this.state.tabbedEditor}
                             switchEditorTab={this.switchEditorTab}
                             editorModification={this.editorModification}
@@ -165,6 +166,7 @@ class App extends Component {
                         infoDialogOpen: false,
                         modified: false,
                         saving: false,
+                        codemirrorhack: 0,
                     })
                 ])
             });
