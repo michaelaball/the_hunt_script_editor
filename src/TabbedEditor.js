@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import 'react-tabs/style/react-tabs.css';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+
 import Editor from "./Editor";
 
 class TabbedEditor extends Component {
@@ -11,6 +14,7 @@ class TabbedEditor extends Component {
         this.onClickInfo = this.onClickInfo.bind(this);
         this.onClickClose = this.onClickClose.bind(this);
         this.onClickRevert = this.onClickRevert.bind(this);
+        this.doCloseTab = this.doCloseTab.bind(this);
     }
 
     activeTab() {
@@ -29,18 +33,46 @@ class TabbedEditor extends Component {
     }
 
     onClickRevert() {
-        var activeTab = this.activeTab();
-        var activeTabID = this.props.tabbedEditor.activeTabID;
-        var unmodifiedScript = this.props.scripts.find((element) => element.id === activeTabID);
-        this.props.editorModification(Object.assign({}, unmodifiedScript, {
-            codemirrorhack: activeTab.codemirrorhack+1,
-            infoDialogOpen: false,
-            modified: false,
-            saving: false,
-        }));
+        confirmAlert({
+            title: 'Revert changes to script',                        // Title dialog
+            message: 'Are you sure you wish to revert to the last save?',               // Message dialog
+            childrenElement: () => {},       // Custom UI or Component
+            confirmLabel: 'Confirm',                           // Text button confirm
+            cancelLabel: 'Cancel',                             // Text button cancel
+            onConfirm: () => {
+                var activeTab = this.activeTab();
+                var activeTabID = this.props.tabbedEditor.activeTabID;
+                var unmodifiedScript = this.props.scripts.find((element) => element.id === activeTabID);
+                this.props.editorModification(Object.assign({}, unmodifiedScript, {
+                    codemirrorhack: activeTab.codemirrorhack+1,
+                    infoDialogOpen: false,
+                    modified: false,
+                    saving: false,
+                }));
+            },    // Action after Confirm
+            onCancel: () => {},      // Action after Cancel
+        });
     }
 
     onClickClose() {
+        if (this.activeTab().modified) {
+            confirmAlert({
+                title: 'Unsaved changes',                        // Title dialog
+                message: 'Are you sure you wish to close the tab without saving? Changes will be lost.',               // Message dialog
+                childrenElement: () => {},       // Custom UI or Component
+                confirmLabel: 'Close',                           // Text button confirm
+                cancelLabel: 'Cancel',                             // Text button cancel
+                onConfirm: () => {
+                    this.doCloseTab();
+                },    // Action after Confirm
+                onCancel: () => {},      // Action after Cancel
+            });
+        } else {
+            this.doCloseTab();
+        }
+    }
+
+    doCloseTab() {
         var newActiveTab = null;
         const activeTab = this.activeTab();
         const newOpenTabs = this.props.tabbedEditor.openTabs.filter(element => {
