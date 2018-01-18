@@ -8,7 +8,7 @@ import ScriptBrowser from "./ScriptBrowser";
 import User from "./User.js"
 import TabbedEditor from "./TabbedEditor.js";
 
-const defaultEndpoint = "http://localhost:8080/api";
+const defaultEndpoint = "http://thehunt.circledig.com/api";
 const superagent = require('superagent');
 
 const scriptsEndpoint = "/scripts";
