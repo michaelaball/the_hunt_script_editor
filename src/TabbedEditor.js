@@ -9,6 +9,7 @@ class TabbedEditor extends Component {
         this.activeTab = this.activeTab.bind(this);
         this.activeTabIndex = this.activeTabIndex.bind(this);
         this.onClickInfo = this.onClickInfo.bind(this);
+        this.onClickClose = this.onClickClose.bind(this);
     }
 
     activeTab() {
@@ -26,6 +27,24 @@ class TabbedEditor extends Component {
         });
     }
 
+    onClickClose() {
+        var newActiveTab = null;
+        const activeTab = this.activeTab();
+        const newOpenTabs = this.props.tabbedEditor.openTabs.filter(element => {
+            if (activeTab.id === element.id) {
+                // remove
+                return false;
+            } else {
+                newActiveTab = element;
+                return true;
+            }
+        });
+        this.props.updateTabbedEditor({
+            openTabs: newOpenTabs,
+            activeTabID: null===newActiveTab ? null : newActiveTab.id,
+        });
+    }
+
     render() {
         var selectedIndex = this.activeTabIndex();
         return (
@@ -36,7 +55,7 @@ class TabbedEditor extends Component {
                     <button>Run</button>
                     <button onClick={() => this.props.saveEditorScript(this.activeTab())}>Save</button>
                     <button>Revert</button>
-                    <button>Close</button>
+                    <button onClick={this.onClickClose}>Close</button>
                 </div>
                 <Tabs
                     selectedIndex={selectedIndex}
