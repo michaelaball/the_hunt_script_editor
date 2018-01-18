@@ -201,7 +201,7 @@ class App extends Component {
             .set("api_key", this.state.login.token)
             .end((err, res) => {
                 if (err || res.statusCode !== 200) {
-                    this.state.updateScripts([]);
+                    this.updateScripts([]);
                     return console.log(err);
                 }
                 console.log(res);
