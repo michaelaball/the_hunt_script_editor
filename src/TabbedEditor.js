@@ -60,15 +60,26 @@ class TabbedEditor extends Component {
 
     render() {
         var selectedIndex = this.activeTabIndex();
+        console.log("active tab:"+this.activeTab());
         return (
             <div align="left">
                 <div>
-                    <button onClick={this.onClickInfo}>Info</button>
-                    <button>Deployments</button>
-                    <button>Run</button>
-                    <button onClick={() => this.props.saveEditorScript(this.activeTab())}>Save</button>
-                    <button onClick={this.onClickRevert}>Revert</button>
-                    <button onClick={this.onClickClose}>Close</button>
+                    <button
+                        onClick={this.onClickInfo}
+                        disabled={this.activeTab()===undefined ? "disabled" : null}>Info</button>
+                    <button
+                        disabled={this.activeTab()===undefined ? "disabled" : null}>Deployments</button>
+                    <button
+                        disabled={this.activeTab()===undefined ? "disabled" : null}>Run</button>
+                    <button
+                        onClick={() => this.props.saveEditorScript(this.activeTab())}
+                        disabled={this.activeTab()===undefined || !this.activeTab().modified ? "disabled" : null}>Save</button>
+                    <button
+                        onClick={this.onClickRevert}
+                        disabled={this.activeTab()===undefined || !this.activeTab().modified ? "disabled" : null}>Revert</button>
+                    <button
+                        onClick={this.onClickClose}
+                        disabled={this.activeTab()===undefined ? "disabled" : null}>Close</button>
                 </div>
                 <Tabs
                     selectedIndex={selectedIndex}
