@@ -40,8 +40,10 @@ button {
 
 
 .content {
-  margin-bottom: 300px;
   clear: both;
+  position: relative;
+  overflow-y: auto;
+  max-height: calc(100vh - 285px);
 }
 
 .footer {

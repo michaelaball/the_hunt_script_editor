@@ -105,7 +105,7 @@ class App extends Component {
                         updateUser={this.updateUser}/>
 
                 </div>
-                <div className="content">{content}</div>
+                <div className="content" overflow-y="scroll">{content}</div>
                 <Footer
                     login={this.state.login}
                     user={this.state.user}/>
