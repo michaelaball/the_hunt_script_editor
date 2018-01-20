@@ -9,7 +9,7 @@ import TabbedEditor from "./TabbedEditor.js";
 
 require ('codemirror/lib/codemirror.css');
 require('./App.css');
-const defaultEndpoint = "http://thehunt.circledig.com/api";
+const defaultEndpoint = "http://localhost:8080/api";
 const superagent = require('superagent');
 
 const scriptsEndpoint = "/scripts";
