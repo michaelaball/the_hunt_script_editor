@@ -44,6 +44,9 @@ button {
   overflow-y: hidden;
   height: calc(100vh - 285px);
   max-height: calc(100vh - 285px);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .footer {
@@ -58,44 +61,57 @@ button {
 }
 
 .tabbedEditor {
-  position:fixed;
-  min-height: 100%;
-  height: 100%;
-  width: 100%;
+  position:relative;
+  width: inherit;
   background-color: #77ee77;
+
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: column;
 }
 
 .react-tabs {
-  height:100%;
-  position:fixed;
+  position:relative;
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: column;
 }
 
 .react-tabs__tab-panel {
-  height: 100%;
   width: 100%;
-  position: fixed;
   overflow-y: hidden;
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column;
 }
 
 .ReactCodeMirror {
-  max-height: 100% !important;
-  height: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column;
   /*overflow-y: scroll;*/
+  display: flex;
+  flex-flow: column;
 }
 
 .CodeMirror {
-  height: 100%;
+  flex: 1 0 auto;
   z-index: 5;
+  display: flex;
+  flex-flow: column;
 }
 
 .CodeMirror-scroll {
-  height: 100%;
-  /*overflow-y: scroll;*/
+  flex: 1 0 auto;
+  overflow-y: scroll;
   overflow-x: auto;
+  display: flex;
+  flex-flow: column;
 }
 
 .editor {
   background-color: red;
-  height: 100%;
-  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column;
 }

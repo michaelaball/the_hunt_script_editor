@@ -4,10 +4,6 @@
     <list default="true" id="00d6a87e-2e6d-4447-ac4b-c487bf1f9544" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Editor.js" afterPath="$PROJECT_DIR$/src/Editor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ScriptDetail.css" afterPath="$PROJECT_DIR$/src/ScriptDetail.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TabbedEditor.js" afterPath="$PROJECT_DIR$/src/TabbedEditor.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,50 +26,6 @@
                   <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
-                    <marker date="1516411392278" expanded="true" signature="4231:4381" ph="&lt;div/&gt;" />
-                    <marker date="1516411392278" expanded="true" signature="4231:4398" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="4265:4362" ph="&lt;Footer/&gt;" />
-                    <marker date="1516411392278" expanded="true" signature="4419:4519" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="4542:4608" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="4633:4729" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="4758:4997" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="4782:4989" ph="{&quot;scripts&quot;: scripts...}" />
-                    <marker date="1516411392278" expanded="true" signature="5038:5168" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="5207:5334" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="5365:6075" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="5455:5560" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="5493:5548" ph="{&quot;activeTabID&quot;: script.id...}" />
-                    <marker date="1516411392278" expanded="true" signature="5566:5999" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="5604:5987" ph="{&quot;activeTabID&quot;: script.id...}" />
-                    <marker date="1516411392278" expanded="true" signature="5712:5972" ph="[...]" />
-                    <marker date="1516411392278" expanded="true" signature="5760:5953" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="6105:6194" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="6227:6688" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="6312:6680" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="6384:6669" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="6432:6594" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="6600:6655" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="6711:7351" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="6864:7343" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="6917:7025" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="7112:7285" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="7182:7267" ph="{&quot;_id&quot;: _id...}" />
-                    <marker date="1516411392278" expanded="true" signature="7379:8660" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="7520:7703" ph="{&quot;name&quot;: script.name...}" />
-                    <marker date="1516411392278" expanded="true" signature="7736:8652" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="7789:7939" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="8004:8636" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="8108:8522" ph="{&quot;activeTabID&quot;: script.id...}" />
-                    <marker date="1516411392278" expanded="true" signature="8232:8499" ph="[...]" />
-                    <marker date="1516411392278" expanded="true" signature="8290:8472" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="8549:8617" ph="{&quot;activeTab&quot;: &quot;editor&quot;...}" />
-                    <marker date="1516411392278" expanded="true" signature="8691:9703" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="8725:8789" ph="{&quot;id&quot;: script.id...}" />
-                    <marker date="1516411392278" expanded="true" signature="8931:9141" ph="{&quot;id&quot;: script.id...}" />
-                    <marker date="1516411392278" expanded="true" signature="9174:9695" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="9227:9439" ph="{...}" />
-                    <marker date="1516411392278" expanded="true" signature="9273:9374" ph="{&quot;id&quot;: script.id...}" />
-                    <marker date="1516411392278" expanded="true" signature="9514:9640" ph="{&quot;id&quot;: script.id...}" />
                   </folding>
                 </state>
               </provider>
@@ -92,8 +44,8 @@
           <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/App.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="332">
-                  <caret line="99" column="21" lean-forward="false" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+                <state relative-caret-position="257">
+                  <caret line="93" column="20" lean-forward="false" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -417,13 +369,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97832000" />
+    <option name="totallyTimeSpent" value="99484000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="94" y="892" width="1456" height="876" extended-state="6" />
+    <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22582921" sideWeight="0.57650274" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16877638" sideWeight="0.57650274" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3306011" sideWeight="0.5081157" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.49752998" order="1" side_tool="false" content_ui="tabs" />
@@ -431,7 +383,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22582921" sideWeight="0.42349726" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3306011" sideWeight="0.49188426" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26535088" sideWeight="0.49188426" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3989071" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -496,50 +448,6 @@
           <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1516411392278" expanded="true" signature="4231:4381" ph="&lt;div/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4231:4398" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4265:4362" ph="&lt;Footer/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4419:4519" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4542:4608" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4633:4729" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4758:4997" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4782:4989" ph="{&quot;scripts&quot;: scripts...}" />
-            <marker date="1516411392278" expanded="true" signature="5038:5168" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5207:5334" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5365:6075" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5455:5560" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5493:5548" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5566:5999" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5604:5987" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5712:5972" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="5760:5953" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6105:6194" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6227:6688" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6312:6680" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6384:6669" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6432:6594" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6600:6655" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6711:7351" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6864:7343" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6917:7025" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7112:7285" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7182:7267" ph="{&quot;_id&quot;: _id...}" />
-            <marker date="1516411392278" expanded="true" signature="7379:8660" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7520:7703" ph="{&quot;name&quot;: script.name...}" />
-            <marker date="1516411392278" expanded="true" signature="7736:8652" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7789:7939" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8004:8636" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8108:8522" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8232:8499" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="8290:8472" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8549:8617" ph="{&quot;activeTab&quot;: &quot;editor&quot;...}" />
-            <marker date="1516411392278" expanded="true" signature="8691:9703" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8725:8789" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8931:9141" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9174:9695" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9227:9439" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9273:9374" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9514:9640" ph="{&quot;id&quot;: script.id...}" />
           </folding>
         </state>
       </provider>
@@ -579,50 +487,6 @@
           <caret line="360" column="61" lean-forward="false" selection-start-line="360" selection-start-column="61" selection-end-line="360" selection-end-column="61" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1516411392278" expanded="true" signature="4231:4381" ph="&lt;div/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4231:4398" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4265:4362" ph="&lt;Footer/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4419:4519" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4542:4608" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4633:4729" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4758:4997" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4782:4989" ph="{&quot;scripts&quot;: scripts...}" />
-            <marker date="1516411392278" expanded="true" signature="5038:5168" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5207:5334" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5365:6075" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5455:5560" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5493:5548" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5566:5999" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5604:5987" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5712:5972" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="5760:5953" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6105:6194" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6227:6688" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6312:6680" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6384:6669" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6432:6594" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6600:6655" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6711:7351" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6864:7343" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6917:7025" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7112:7285" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7182:7267" ph="{&quot;_id&quot;: _id...}" />
-            <marker date="1516411392278" expanded="true" signature="7379:8660" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7520:7703" ph="{&quot;name&quot;: script.name...}" />
-            <marker date="1516411392278" expanded="true" signature="7736:8652" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7789:7939" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8004:8636" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8108:8522" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8232:8499" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="8290:8472" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8549:8617" ph="{&quot;activeTab&quot;: &quot;editor&quot;...}" />
-            <marker date="1516411392278" expanded="true" signature="8691:9703" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8725:8789" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8931:9141" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9174:9695" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9227:9439" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9273:9374" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9514:9640" ph="{&quot;id&quot;: script.id...}" />
           </folding>
         </state>
       </provider>
@@ -662,50 +526,6 @@
           <caret line="361" column="0" lean-forward="true" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1516411392278" expanded="true" signature="4231:4381" ph="&lt;div/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4231:4398" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4265:4362" ph="&lt;Footer/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4419:4519" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4542:4608" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4633:4729" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4758:4997" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4782:4989" ph="{&quot;scripts&quot;: scripts...}" />
-            <marker date="1516411392278" expanded="true" signature="5038:5168" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5207:5334" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5365:6075" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5455:5560" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5493:5548" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5566:5999" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5604:5987" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5712:5972" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="5760:5953" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6105:6194" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6227:6688" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6312:6680" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6384:6669" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6432:6594" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6600:6655" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6711:7351" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6864:7343" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6917:7025" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7112:7285" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7182:7267" ph="{&quot;_id&quot;: _id...}" />
-            <marker date="1516411392278" expanded="true" signature="7379:8660" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7520:7703" ph="{&quot;name&quot;: script.name...}" />
-            <marker date="1516411392278" expanded="true" signature="7736:8652" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7789:7939" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8004:8636" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8108:8522" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8232:8499" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="8290:8472" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8549:8617" ph="{&quot;activeTab&quot;: &quot;editor&quot;...}" />
-            <marker date="1516411392278" expanded="true" signature="8691:9703" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8725:8789" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8931:9141" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9174:9695" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9227:9439" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9273:9374" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9514:9640" ph="{&quot;id&quot;: script.id...}" />
           </folding>
         </state>
       </provider>
@@ -737,50 +557,6 @@
           <caret line="112" column="25" lean-forward="false" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="25" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1516411392278" expanded="true" signature="4231:4381" ph="&lt;div/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4231:4398" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4265:4362" ph="&lt;Footer/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4419:4519" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4542:4608" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4633:4729" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4758:4997" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4782:4989" ph="{&quot;scripts&quot;: scripts...}" />
-            <marker date="1516411392278" expanded="true" signature="5038:5168" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5207:5334" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5365:6075" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5455:5560" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5493:5548" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5566:5999" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5604:5987" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5712:5972" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="5760:5953" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6105:6194" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6227:6688" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6312:6680" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6384:6669" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6432:6594" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6600:6655" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6711:7351" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6864:7343" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6917:7025" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7112:7285" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7182:7267" ph="{&quot;_id&quot;: _id...}" />
-            <marker date="1516411392278" expanded="true" signature="7379:8660" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7520:7703" ph="{&quot;name&quot;: script.name...}" />
-            <marker date="1516411392278" expanded="true" signature="7736:8652" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7789:7939" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8004:8636" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8108:8522" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8232:8499" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="8290:8472" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8549:8617" ph="{&quot;activeTab&quot;: &quot;editor&quot;...}" />
-            <marker date="1516411392278" expanded="true" signature="8691:9703" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8725:8789" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8931:9141" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9174:9695" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9227:9439" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9273:9374" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9514:9640" ph="{&quot;id&quot;: script.id...}" />
           </folding>
         </state>
       </provider>
@@ -828,50 +604,6 @@
           <caret line="360" column="61" lean-forward="false" selection-start-line="360" selection-start-column="61" selection-end-line="360" selection-end-column="61" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1516411392278" expanded="true" signature="4231:4381" ph="&lt;div/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4231:4398" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4265:4362" ph="&lt;Footer/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4419:4519" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4542:4608" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4633:4729" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4758:4997" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4782:4989" ph="{&quot;scripts&quot;: scripts...}" />
-            <marker date="1516411392278" expanded="true" signature="5038:5168" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5207:5334" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5365:6075" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5455:5560" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5493:5548" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5566:5999" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5604:5987" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5712:5972" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="5760:5953" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6105:6194" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6227:6688" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6312:6680" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6384:6669" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6432:6594" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6600:6655" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6711:7351" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6864:7343" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6917:7025" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7112:7285" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7182:7267" ph="{&quot;_id&quot;: _id...}" />
-            <marker date="1516411392278" expanded="true" signature="7379:8660" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7520:7703" ph="{&quot;name&quot;: script.name...}" />
-            <marker date="1516411392278" expanded="true" signature="7736:8652" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7789:7939" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8004:8636" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8108:8522" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8232:8499" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="8290:8472" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8549:8617" ph="{&quot;activeTab&quot;: &quot;editor&quot;...}" />
-            <marker date="1516411392278" expanded="true" signature="8691:9703" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8725:8789" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8931:9141" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9174:9695" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9227:9439" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9273:9374" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9514:9640" ph="{&quot;id&quot;: script.id...}" />
           </folding>
         </state>
       </provider>
@@ -911,50 +643,6 @@
           <caret line="361" column="0" lean-forward="true" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1516411392278" expanded="true" signature="4231:4381" ph="&lt;div/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4231:4398" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4265:4362" ph="&lt;Footer/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4419:4519" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4542:4608" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4633:4729" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4758:4997" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4782:4989" ph="{&quot;scripts&quot;: scripts...}" />
-            <marker date="1516411392278" expanded="true" signature="5038:5168" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5207:5334" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5365:6075" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5455:5560" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5493:5548" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5566:5999" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5604:5987" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5712:5972" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="5760:5953" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6105:6194" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6227:6688" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6312:6680" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6384:6669" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6432:6594" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6600:6655" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6711:7351" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6864:7343" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6917:7025" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7112:7285" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7182:7267" ph="{&quot;_id&quot;: _id...}" />
-            <marker date="1516411392278" expanded="true" signature="7379:8660" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7520:7703" ph="{&quot;name&quot;: script.name...}" />
-            <marker date="1516411392278" expanded="true" signature="7736:8652" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7789:7939" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8004:8636" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8108:8522" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8232:8499" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="8290:8472" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8549:8617" ph="{&quot;activeTab&quot;: &quot;editor&quot;...}" />
-            <marker date="1516411392278" expanded="true" signature="8691:9703" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8725:8789" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8931:9141" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9174:9695" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9227:9439" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9273:9374" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9514:9640" ph="{&quot;id&quot;: script.id...}" />
           </folding>
         </state>
       </provider>
@@ -1094,50 +782,6 @@
           <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1516411392278" expanded="true" signature="4231:4381" ph="&lt;div/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4231:4398" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4265:4362" ph="&lt;Footer/&gt;" />
-            <marker date="1516411392278" expanded="true" signature="4419:4519" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4542:4608" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4633:4729" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4758:4997" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="4782:4989" ph="{&quot;scripts&quot;: scripts...}" />
-            <marker date="1516411392278" expanded="true" signature="5038:5168" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5207:5334" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5365:6075" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5455:5560" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5493:5548" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5566:5999" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="5604:5987" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="5712:5972" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="5760:5953" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6105:6194" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6227:6688" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6312:6680" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6384:6669" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6432:6594" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6600:6655" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6711:7351" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6864:7343" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="6917:7025" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7112:7285" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7182:7267" ph="{&quot;_id&quot;: _id...}" />
-            <marker date="1516411392278" expanded="true" signature="7379:8660" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7520:7703" ph="{&quot;name&quot;: script.name...}" />
-            <marker date="1516411392278" expanded="true" signature="7736:8652" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="7789:7939" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8004:8636" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8108:8522" ph="{&quot;activeTabID&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8232:8499" ph="[...]" />
-            <marker date="1516411392278" expanded="true" signature="8290:8472" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8549:8617" ph="{&quot;activeTab&quot;: &quot;editor&quot;...}" />
-            <marker date="1516411392278" expanded="true" signature="8691:9703" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="8725:8789" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="8931:9141" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9174:9695" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9227:9439" ph="{...}" />
-            <marker date="1516411392278" expanded="true" signature="9273:9374" ph="{&quot;id&quot;: script.id...}" />
-            <marker date="1516411392278" expanded="true" signature="9514:9640" ph="{&quot;id&quot;: script.id...}" />
           </folding>
         </state>
       </provider>
@@ -1172,8 +816,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="99" column="21" lean-forward="false" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+        <state relative-caret-position="257">
+          <caret line="93" column="20" lean-forward="false" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
           <folding />
         </state>
       </provider>
