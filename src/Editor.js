@@ -5,7 +5,7 @@ import './ScriptDetail.css';
 
 var Codemirror = require('react-codemirror');
 
-require('codemirror/lib/codemirror.css');
+
 
 require('codemirror/mode/lua/lua');
 
@@ -25,7 +25,7 @@ class Editor extends Component {
             mode: 'lua',
         };
         return (
-            <div align="left">
+            <div align="left" className="editor">
                 <EditInfoModal
                     isOpen={this.props.script.infoDialogOpen}
                     name={this.props.script.name}

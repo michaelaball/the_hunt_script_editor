@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
-import './App.css';
 
 import NavModule from './Nav.js';
 import Footer from './Footer.js';
@@ -8,10 +7,14 @@ import ScriptBrowser from "./ScriptBrowser";
 import User from "./User.js"
 import TabbedEditor from "./TabbedEditor.js";
 
+require ('codemirror/lib/codemirror.css');
+require('./App.css');
 const defaultEndpoint = "http://thehunt.circledig.com/api";
 const superagent = require('superagent');
 
 const scriptsEndpoint = "/scripts";
+
+
 
 class App extends Component {
 
@@ -105,7 +108,7 @@ class App extends Component {
                         updateUser={this.updateUser}/>
 
                 </div>
-                <div className="content" overflow-y="scroll">{content}</div>
+                <div className="content">{content}</div>
                 <Footer
                     login={this.state.login}
                     user={this.state.user}/>

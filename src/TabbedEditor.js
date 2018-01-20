@@ -94,7 +94,7 @@ class TabbedEditor extends Component {
         var selectedIndex = this.activeTabIndex();
         console.log("active tab:"+this.activeTab());
         return (
-            <div align="left">
+            <div align="left" className="tabbedEditor">
                 <div>
                     <button
                         onClick={this.onClickInfo}
