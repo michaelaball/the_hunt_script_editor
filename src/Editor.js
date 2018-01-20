@@ -24,7 +24,7 @@ class Editor extends Component {
             lineNumbers: true,
             mode: 'lua',
         };
-        if (this.props.enabled) {
+        if (true) {
             return (
                 <div align="left" className="editor">
                     <EditInfoModal
