@@ -15,6 +15,7 @@ class TabbedEditor extends Component {
         this.onClickClose = this.onClickClose.bind(this);
         this.onClickRevert = this.onClickRevert.bind(this);
         this.doCloseTab = this.doCloseTab.bind(this);
+        this.onClickDeployments = this.onClickDeployments.bind(this);
     }
 
     activeTab() {
@@ -23,6 +24,13 @@ class TabbedEditor extends Component {
 
     activeTabIndex() {
         return this.props.tabbedEditor.openTabs.indexOf(this.activeTab());
+    }
+
+    onClickDeployments() {
+        this.props.editorModification({
+            id: this.activeTab().id,
+            deploymentsPaneOpen: !this.activeTab().deploymentsPaneOpen,
+        })
     }
 
     onClickInfo() {
@@ -100,6 +108,7 @@ class TabbedEditor extends Component {
                         onClick={this.onClickInfo}
                         disabled={this.activeTab()===undefined ? "disabled" : null}>Info</button>
                     <button
+                        onClick={this.onClickDeployments}
                         disabled={this.activeTab()===undefined ? "disabled" : null}>Deployments</button>
                     <button
                         disabled={this.activeTab()===undefined ? "disabled" : null}>Run</button>
@@ -130,7 +139,9 @@ class TabbedEditor extends Component {
                             <TabPanel className={index === this.activeTabIndex() ? "react-tabs__tab-panel" : "react-tabs__tab-panel-hidden"}>
                                 <Editor
                                     script={script}
-                                    editorModification={this.props.editorModification}
+                                    editorModification={(modification) => {this.props.editorModification(Object.assign({}, {
+                                        id: script.id,
+                                    }, modification))}}
                                 />
                             </TabPanel>
                         )

@@ -11,6 +11,7 @@
     "react-dom": "^16.2.0",
     "react-modal": "^3.1.11",
     "react-scripts": "1.0.17",
+    "react-split-pane": "^0.1.74",
     "react-table": "^6.7.6",
     "react-table-select": "^0.2.7",
     "react-tabs": "^2.2.1",

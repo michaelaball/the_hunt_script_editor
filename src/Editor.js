@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import EditInfoModal from "./EditInfoModal";
+import SplitPane from 'react-split-pane';
 
 import './ScriptDetail.css';
 
@@ -23,7 +24,7 @@ class Editor extends Component {
             lineNumbers: true,
             mode: 'lua',
         };
-        return (
+        var editor = (
             <div align="left" className="editor">
                 <EditInfoModal
                     isOpen={this.props.script.infoDialogOpen}
@@ -58,7 +59,41 @@ class Editor extends Component {
                     })}
                     options={options}
                     autoFocus={true}/>
-            </div>
+            </div>);
+        if (this.props.script.deploymentsPaneOpen) {
+            return (
+                <SplitPane id="myPane1Bitch"
+                           split="vertical"
+                           style={{
+                               overflowY: "hidden",
+                               height: "auto",
+                               position: "auto",
+                               flex: "1 1 auto",
+                               display: "flex",
+                               flexFlow: "column",
+                           }}
+                           pane1Style={{
+                               overflowY: "hidden",
+                               flex: "1 1 auto",
+                               display: "flex",
+                               flexFlow: "column",
+                           }}
+                           minSize={50}
+                           defaultSize={this.props.script.splitPos ? this.props.script.splitPos : 400}
+                           onChange={(size) => {
+                               this.props.editorModification({
+                                   splitPos: size,
+                               });
+                           }}>
+                    {editor}
+                    <div>
+
+                    </div>
+                </SplitPane>
+            )
+        }
+        return (
+            editor
         );
 
 
