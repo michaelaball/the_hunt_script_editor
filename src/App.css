@@ -60,6 +60,10 @@ button {
   z-index: 10;
 }
 
+.scriptBrowser {
+  overflow-y: scroll;
+}
+
 .tabbedEditor {
   position:relative;
   width: inherit;

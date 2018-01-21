@@ -129,7 +129,6 @@ class TabbedEditor extends Component {
                         return (
                             <TabPanel className={index === this.activeTabIndex() ? "react-tabs__tab-panel" : "react-tabs__tab-panel-hidden"}>
                                 <Editor
-                                    enabled={index === this.activeTabIndex()}
                                     script={script}
                                     editorModification={this.props.editorModification}
                                 />

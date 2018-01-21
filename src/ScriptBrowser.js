@@ -127,7 +127,7 @@ class ScriptBrowser extends Component {
         console.log("script: " + script);
 
         return (
-            <div style={{height: '100%'}}>
+            <div style={{height: '100%'}} className="scriptBrowser">
                 <div style={{width: '100%'}}>
                     <EditInfoModal
                         isOpen={this.props.newDialogOpen}
