@@ -8,6 +8,7 @@ class DeploymentEditor extends Component {
         this.onSelect = this.onSelect.bind(this);
         this.activeDeployment = this.activeDeployment.bind(this);
         this.activeDeploymentIndex = this.activeDeploymentIndex.bind(this);
+        this.selectedDeployment = this.selectedDeployment.bind(this);
 
         if (undefined === this.props.deployments) {
             this.props.deploymentsModification(
@@ -16,7 +17,7 @@ class DeploymentEditor extends Component {
                         {id: 51, name: "hello", description: "test"},
                         {id: 53, name: "hello53", description: "test53"},
                     ],
-                    selected: {label: "hello", value: 51},
+                    selected: 51,
                 }
             );
         }
@@ -24,7 +25,7 @@ class DeploymentEditor extends Component {
 
     onSelect(deployment) {
         this.props.deploymentsModification({
-            selected: deployment,
+            selected: deployment.value,
         });
     }
 
@@ -34,6 +35,14 @@ class DeploymentEditor extends Component {
 
     activeDeploymentIndex() {
         return this.props.deployments.deployments.indexOf(this.activeDeployment());
+    }
+
+    selectedDeployment() {
+        var deployment = this.activeDeployment();
+        return {
+            label: deployment.name,
+            value: deployment.id,
+        }
     }
 
     render() {
@@ -47,7 +56,7 @@ class DeploymentEditor extends Component {
                 value: deployment.id,
             };
         });
-        const defaultOption = this.props.deployments.selected;
+        const defaultOption = this.selectedDeployment();
         return (
             <div>
                 <div id="buttonDeploymentRow">
