@@ -96,6 +96,8 @@ class Editor extends Component {
                     {editor}
                     <div>
                         <DeploymentEditor
+                            login={this.props.login}
+                            script={this.props.script}
                             deployments={this.props.script.deployments}
                             deploymentsModification={this.deploymentsModification}/>
                     </div>

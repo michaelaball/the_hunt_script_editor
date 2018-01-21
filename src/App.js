@@ -88,7 +88,8 @@ class App extends Component {
                             switchEditorTab={this.switchEditorTab}
                             editorModification={this.editorModification}
                             saveEditorScript={this.saveEditorScript}
-                            updateTabbedEditor={this.updateTabbedEditor}/>
+                            updateTabbedEditor={this.updateTabbedEditor}
+                            login={this.state.login}/>
                     );
                     break;
             }
