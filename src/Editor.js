@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import EditInfoModal from "./EditInfoModal";
+import DeploymentEditor from "./DeploymentEditor";
 import SplitPane from 'react-split-pane';
 
 import './ScriptDetail.css';
@@ -12,10 +13,17 @@ require('codemirror/mode/lua/lua');
 class Editor extends Component {
     constructor(props) {
         super(props);
+        this.deploymentsModification = this.deploymentsModification.bind(this);
     }
 
     onSourceModified() {
 
+    }
+
+    deploymentsModification(deployments) {
+        this.props.editorModification({
+            deployments: Object.assign({}, this.props.script.deployments, deployments),
+        })
     }
 
     render() {
@@ -87,7 +95,9 @@ class Editor extends Component {
                            }}>
                     {editor}
                     <div>
-
+                        <DeploymentEditor
+                            deployments={this.props.script.deployments}
+                            deploymentsModification={this.deploymentsModification}/>
                     </div>
                 </SplitPane>
             )
