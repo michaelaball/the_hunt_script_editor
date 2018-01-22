@@ -85,6 +85,26 @@ class DeploymentEditor extends Component {
             };
         });
         const defaultOption = this.selectedDeployment();
+        const activeDeployment = this.activeDeployment();
+        var deploymentDetail = null;
+        if (activeDeployment) {
+            deploymentDetail = (
+                <div align="left">
+                    <p><b>ID:</b> {activeDeployment.id}</p>
+                    <p><b>Name:</b> {activeDeployment.name}</p>
+                    <p><b>Event Subscriptions:</b></p>
+                    <ul>
+                        {
+                            activeDeployment.event_subscriptions ?
+                                activeDeployment.event_subscriptions.map((element, index) => {
+                                    return (<li key={index}><b>{element.event_name}</b>
+                                        {element.subject_table_name} ({element.subject_id}) ->
+                                        {element.predicate_table_name} ({element.predicate_id})</li>);
+                                }) : null
+                        }
+                    </ul>
+                </div>);
+        }
         return (
             <div>
                 <div id="buttonDeploymentRow">
@@ -99,6 +119,7 @@ class DeploymentEditor extends Component {
                     <Dropdown options={options} onChange={this.onSelect} value={defaultOption}
                               placeholder="Select an option"/>
                 </div>
+                {deploymentDetail}
             </div>
         );
     }
