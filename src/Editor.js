@@ -20,6 +20,13 @@ class Editor extends Component {
 
     }
 
+    componentDidMount() {
+        const height = this.divElement.clientHeight;
+        this.props.editorModification({
+            editorHeight: height,
+        });
+    }
+
     deploymentsModification(deployments) {
         this.props.editorModification({
             deployments: Object.assign({}, this.props.script.deployments, deployments),
@@ -33,7 +40,10 @@ class Editor extends Component {
             mode: 'lua',
         };
         var editor = (
-            <div align="left" className="editor">
+            <div
+                ref={(divElement) => this.divElement = divElement}
+                align="left"
+                className="editor">
                 <EditInfoModal
                     isOpen={this.props.script.infoDialogOpen}
                     name={this.props.script.name}
@@ -86,6 +96,9 @@ class Editor extends Component {
                                display: "flex",
                                flexFlow: "column",
                            }}
+                           pane2Style={{
+                               height: this.props.script.editorHeight,
+                           }}
                            minSize={50}
                            defaultSize={this.props.script.splitPos ? this.props.script.splitPos : 400}
                            onChange={(size) => {
@@ -94,7 +107,10 @@ class Editor extends Component {
                                });
                            }}>
                     {editor}
-                    <div>
+                    <div className="deploymentEditor"
+                         style={{
+                             height: this.props.script.editorHeight ? this.props.script.editorHeight : 10
+                         }}>
                         <DeploymentEditor
                             login={this.props.login}
                             script={this.props.script}

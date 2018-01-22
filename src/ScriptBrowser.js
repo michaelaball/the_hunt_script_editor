@@ -145,7 +145,9 @@ class ScriptBrowser extends Component {
                             });
                         }}
                         cancel={() => {
-                            console.log("cancel pressed");
+                            this.props.updateScriptBrowser({
+                                newDialogOpen: false,
+                            });
                         }}
                     />
                     <div style={{float: 'left', width: '60%', marginBottom: '60px'}}>

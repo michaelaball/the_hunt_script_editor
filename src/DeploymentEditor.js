@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import 'react-dropdown/style.css'
+import './deploymentDetail.css'
 import Dropdown from 'react-dropdown';
 
 const superagent = require('superagent');
@@ -14,12 +15,16 @@ class DeploymentEditor extends Component {
         this.activeDeploymentIndex = this.activeDeploymentIndex.bind(this);
         this.selectedDeployment = this.selectedDeployment.bind(this);
         this.refreshDeployments = this.refreshDeployments.bind(this);
+        this.toggleRunConfig = this.toggleRunConfig.bind(this);
+    }
 
+    componentDidMount() {
         if (undefined === this.props.deployments) {
             this.props.deploymentsModification(
                 {
                     deployments: [],
                     selected: undefined,
+
                 }
             );
         }
@@ -38,6 +43,12 @@ class DeploymentEditor extends Component {
 
     activeDeploymentIndex() {
         return this.props.deployments.deployments.indexOf(this.activeDeployment());
+    }
+
+    toggleRunConfig() {
+        this.props.deploymentsModification({
+            showRunConfig: !this.props.deployments.showRunConfig,
+        });
     }
 
     selectedDeployment() {
@@ -89,7 +100,9 @@ class DeploymentEditor extends Component {
         var deploymentDetail = null;
         if (activeDeployment) {
             deploymentDetail = (
-                <div align="left">
+                <div
+                    align="left"
+                    className="deploymentDetail">
                     <p><b>ID:</b> {activeDeployment.id}</p>
                     <p><b>Name:</b> {activeDeployment.name}</p>
                     <p><b>Event Subscriptions:</b></p>
@@ -103,19 +116,90 @@ class DeploymentEditor extends Component {
                                 }) : null
                         }
                     </ul>
+                    <p><b>State:</b></p>
+                    <ul>
+                        {
+                            activeDeployment.state ?
+                                activeDeployment.state.map((element, index) => {
+                                    return (<li key={index}><b>{element.lookup_key}</b> =
+                                        <b> {element.value}</b></li>);
+                                }) : null
+                        }
+                    </ul>
+                </div>);
+        }
+        var runConfig = null;
+        if (this.props.deployments.showRunConfig) {
+            runConfig = (
+                <div>
+                    <b>Run Configuration:</b><br/>
+                    <label>Event Name:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter event name"
+                        defaultValue="init"
+                        name="eventName"
+                        ref={(input) => this.eventName = input}
+                        required/>
+                    <label>Parameters:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter parameters"
+                        defaultValue="parameters"
+                        name="parameters"
+                        ref={(input) => this.parameters = input}
+                        required/>
+                    <label>Subject Table:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter subject table"
+                        defaultValue="subjectTable"
+                        name="subjectTable"
+                        ref={(input) => this.subjectTable = input}
+                        required/>
+                    <label>Subject ID:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter subject id"
+                        defaultValue="init"
+                        name="subjectID"
+                        ref={(input) => this.subjectID = input}
+                        required/>
+                    <label>Predicate Table:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter predicate table"
+                        defaultValue="init"
+                        name="predicateTable"
+                        ref={(input) => this.predicateTable = input}
+                        required/>
+                    <label>Predicate ID:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter predicate id"
+                        defaultValue="init"
+                        name="predicateID"
+                        ref={(input) => this.predicateID = input}
+                        required/>
                 </div>);
         }
         return (
-            <div>
+            <div
+                align="left"
+                className="deploymentEditorRoot"
+                height="auto">
                 <div id="buttonDeploymentRow">
                     <button disabled="disabled">New</button>
                     <button onClick={this.refreshDeployments}>Refresh all</button>
                     <button disabled="disabled">Refresh</button>
                     <button disabled="disabled">Save</button>
                     <button disabled="disabled">Run</button>
+                    <button onClick={this.toggleRunConfig}>Run config</button>
                     <button disabled="disabled">Delete</button>
                 </div>
+                {runConfig}
                 <div>
+                    <label>Choose Deployment:</label>
                     <Dropdown options={options} onChange={this.onSelect} value={defaultOption}
                               placeholder="Select an option"/>
                 </div>

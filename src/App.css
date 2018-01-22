@@ -125,3 +125,12 @@ react-tabs__tab-panel-hidden {
   flex-flow: column;
 }
 
+.deploymentEditor {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.deploymentEditorRoot {
+}
+
+
