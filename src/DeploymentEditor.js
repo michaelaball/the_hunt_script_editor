@@ -28,7 +28,7 @@ class DeploymentEditor extends Component {
                 {
                     deployments: [],
                     selected: undefined,
-
+                    runResults: {},
                 }
             );
         }
@@ -150,7 +150,9 @@ class DeploymentEditor extends Component {
         const defaultOption = this.selectedDeployment();
         const activeDeployment = this.activeDeployment();
         var deploymentDetail = null;
+        var runResult = null;
         if (activeDeployment) {
+            runResult = this.props.deployments.runResults[activeDeployment.id];
             deploymentDetail = (
                 <div
                     align="left"
@@ -177,6 +179,30 @@ class DeploymentEditor extends Component {
                                         <b> {element.value}</b></li>);
                                 }) : null
                         }
+                    </ul>
+                    <p><b>stdout:</b></p>
+                    <ul>
+                    {
+                            runResult ? runResult.stdout.split("\n").map(element => {
+                                return <li>{element}</li>;
+                            }) : null
+                    }
+                    </ul>
+                    <p><b>stderr:</b></p>
+                    <ul>
+                    {
+                        runResult ? runResult.stderr.split("\n").map(element => {
+                            return <li>{element}</li>;
+                        }) : null
+                    }
+                    </ul>
+                    <p><b>Output:</b></p>
+                    <ul>
+                    {
+                        runResult ? runResult.output.split("\n").map(element => {
+                            return <li>{element}</li>;
+                        }) : null
+                    }
                     </ul>
                 </div>);
         }
