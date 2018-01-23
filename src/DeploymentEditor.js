@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import EditDeploymentModal from './EditDeploymentModal'
 import 'react-dropdown/style.css'
 import './deploymentDetail.css'
 import Dropdown from 'react-dropdown';
@@ -16,6 +17,9 @@ class DeploymentEditor extends Component {
         this.selectedDeployment = this.selectedDeployment.bind(this);
         this.refreshDeployments = this.refreshDeployments.bind(this);
         this.toggleRunConfig = this.toggleRunConfig.bind(this);
+        this.onClickNew = this.onClickNew.bind(this);
+        this.saveNewDeployment = this.saveNewDeployment.bind(this);
+        this.addOrUpdateDeployment = this.addOrUpdateDeployment.bind(this);
     }
 
     componentDidMount() {
@@ -37,6 +41,12 @@ class DeploymentEditor extends Component {
         });
     }
 
+    onClickNew() {
+        this.props.deploymentsModification({
+            newDialogOpen: true,
+        })
+    }
+
     activeDeployment() {
         return this.props.deployments.deployments.find((element) => element.id === this.props.deployments.selected)
     }
@@ -44,6 +54,7 @@ class DeploymentEditor extends Component {
     activeDeploymentIndex() {
         return this.props.deployments.deployments.indexOf(this.activeDeployment());
     }
+
 
     toggleRunConfig() {
         this.props.deploymentsModification({
@@ -61,6 +72,47 @@ class DeploymentEditor extends Component {
         } else {
             return null;
         }
+    }
+
+    addOrUpdateDeployment(deployment, runResults = null) {
+        var existing = this.props.deployments.deployments.find((element) => element.id === deployment.id);
+        if (existing) {
+            console.log("found existing: " + existing);
+            var index = this.props.deployments.deployments.indexOf(existing);
+            console.log("index of existing: " + index);
+        } else {
+            var newAllRunResults = {};
+            newAllRunResults[deployment.id] = runResults;
+            this.props.deploymentsModification({
+                deployments: this.props.deployments.deployments.concat([
+                    Object.assign({}, deployment),
+                ]),
+                selected: deployment.id,
+                runResults: Object.assign({}, this.props.deployments.runResults,
+                    newAllRunResults),
+            })
+        }
+    }
+
+    saveNewDeployment(name, description, params) {
+        const scriptID = this.props.script.id;
+        superagent.post(this.props.login.endpoint + deploymentsEndpoint)
+            .set("api_key", this.props.login.token)
+            .query({parameters: params})
+            .send({
+                script_id: scriptID,
+                name: name,
+                description: description,
+            })
+            .end((err, res) => {
+                if (err || res.statusCode !== 200) {
+                    console.log(res);
+                    return console.log(err);
+                }
+                console.log(res);
+                const runResult = res.body.scriptDeploymentRunResult;
+                this.addOrUpdateDeployment(runResult.scriptDeployment, runResult);
+            });
     }
 
     refreshDeployments() {
@@ -188,11 +240,27 @@ class DeploymentEditor extends Component {
                 align="left"
                 className="deploymentEditorRoot"
                 height="auto">
+                <EditDeploymentModal
+                    isOpen={this.props.deployments.newDialogOpen}
+                    name=""
+                    savePending={false}
+                    save={(name, description, params) => {
+                        console.log("Need to save new deployment: " + name + ", " + description + "," + params);
+                        this.props.deploymentsModification({
+                            newDialogOpen: false,
+                        });
+                        this.saveNewDeployment(name, description, params);
+                    }}
+                    cancel={() => {
+                        this.props.updateScriptBrowser({
+                            newDialogOpen: false,
+                        });
+                    }}
+                />
                 <div id="buttonDeploymentRow">
-                    <button disabled="disabled">New</button>
+                    <button onClick={this.onClickNew}>New</button>
                     <button onClick={this.refreshDeployments}>Refresh all</button>
                     <button disabled="disabled">Refresh</button>
-                    <button disabled="disabled">Save</button>
                     <button disabled="disabled">Run</button>
                     <button onClick={this.toggleRunConfig}>Run config</button>
                     <button disabled="disabled">Delete</button>
