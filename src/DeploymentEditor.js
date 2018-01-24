@@ -3,10 +3,13 @@ import EditDeploymentModal from './EditDeploymentModal'
 import 'react-dropdown/style.css'
 import './deploymentDetail.css'
 import Dropdown from 'react-dropdown';
+import {confirmAlert} from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 const superagent = require('superagent');
 
 const deploymentsEndpoint = "/script_deployments";
+const deploymentsRunEndpoint = "/script_deployments/run";
 
 class DeploymentEditor extends Component {
     constructor(props) {
@@ -20,6 +23,8 @@ class DeploymentEditor extends Component {
         this.onClickNew = this.onClickNew.bind(this);
         this.saveNewDeployment = this.saveNewDeployment.bind(this);
         this.addOrUpdateDeployment = this.addOrUpdateDeployment.bind(this);
+        this.onClickRun = this.onClickRun.bind(this);
+        this.onClickDelete = this.onClickDelete.bind(this);
     }
 
     componentDidMount() {
@@ -45,6 +50,60 @@ class DeploymentEditor extends Component {
         this.props.deploymentsModification({
             newDialogOpen: true,
         })
+    }
+
+    onClickDelete() {
+        confirmAlert({
+            title: 'Delete deployment?',                        // Title dialog
+            message: 'Are you sure you wish to delete the deployment? There is no way to retrieve it',               // Message dialog
+            childrenElement: () => {
+            },       // Custom UI or Component
+            confirmLabel: 'Yes, delete.',                           // Text button confirm
+            cancelLabel: 'No.',                             // Text button cancel
+            onConfirm: () => {
+                const activeDeployment = this.activeDeployment();
+                superagent.delete(this.props.login.endpoint + deploymentsEndpoint)
+                    .set("api_key", this.props.login.token)
+                    .query({"id": activeDeployment.id})
+                    .end((err, res) => {
+                        if (err || res.statusCode !== 200) {
+                            return console.log(err);
+                        }
+                        console.log(res);
+                        this.refreshDeployments();
+                    });
+            },
+            onCancel: () => {
+            },
+        });
+    }
+
+    onClickRun() {
+        const activeDeployment = this.activeDeployment();
+        this.props.deploymentsModification({
+            running: true,
+        });
+        superagent.post(this.props.login.endpoint + deploymentsRunEndpoint)
+            .set("api_key", this.props.login.token)
+            .send({
+                deploymentID: activeDeployment.id,
+                parameters: this.parameters.value,
+                action: this.eventName.value,
+                subject_table_name: this.subjectTable.value,
+                subject_id: this.subjectID.value,
+                predicate_table_name: this.predicateTable.value,
+                predicate_id: this.predicateID.value,
+            })
+            .end((err, res) => {
+                if (err || res.statusCode !== 200) {
+                    this.props.deploymentsModification({
+                        running: false,
+                    });
+                    return console.log(err);
+                }
+                console.log(res);
+                this.addOrUpdateDeployment(res.body.scriptDeployment, res.body, false);
+            });
     }
 
     activeDeployment() {
@@ -74,15 +133,27 @@ class DeploymentEditor extends Component {
         }
     }
 
-    addOrUpdateDeployment(deployment, runResults = null) {
+    addOrUpdateDeployment(deployment, runResults = null, runningState = null) {
         var existing = this.props.deployments.deployments.find((element) => element.id === deployment.id);
+        var newAllRunResults = {};
+        newAllRunResults[deployment.id] = runResults;
         if (existing) {
-            console.log("found existing: " + existing);
-            var index = this.props.deployments.deployments.indexOf(existing);
-            console.log("index of existing: " + index);
+            var existingIndex = this.props.deployments.deployments.indexOf(existing);
+            var newDeployments = this.props.deployments.deployments.map((element, index) => {
+                if (index === existingIndex) {
+                    return deployment;
+                } else {
+                    return element;
+                }
+            });
+            this.props.deploymentsModification({
+                deployments: newDeployments,
+                selected: deployment.id,
+                runResults: Object.assign({}, this.props.deployments.runResults,
+                    newAllRunResults),
+                running: (null===runningState) ? this.props.deployments.running : runningState,
+            })
         } else {
-            var newAllRunResults = {};
-            newAllRunResults[deployment.id] = runResults;
             this.props.deploymentsModification({
                 deployments: this.props.deployments.deployments.concat([
                     Object.assign({}, deployment),
@@ -182,85 +253,82 @@ class DeploymentEditor extends Component {
                     </ul>
                     <p><b>stdout:</b></p>
                     <ul>
-                    {
+                        {
                             runResult ? runResult.stdout.split("\n").map(element => {
                                 return <li>{element}</li>;
                             }) : null
-                    }
+                        }
                     </ul>
                     <p><b>stderr:</b></p>
                     <ul>
-                    {
-                        runResult ? runResult.stderr.split("\n").map(element => {
-                            return <li>{element}</li>;
-                        }) : null
-                    }
+                        {
+                            runResult ? runResult.stderr.split("\n").map(element => {
+                                return <li>{element}</li>;
+                            }) : null
+                        }
                     </ul>
                     <p><b>Output:</b></p>
                     <ul>
-                    {
-                        runResult ? runResult.output.split("\n").map(element => {
-                            return <li>{element}</li>;
-                        }) : null
-                    }
+                        {
+                            runResult ? runResult.output.split("\n").map(element => {
+                                return <li>{element}</li>;
+                            }) : null
+                        }
                     </ul>
                 </div>);
         }
-        var runConfig = null;
-        if (this.props.deployments.showRunConfig) {
-            runConfig = (
-                <div>
-                    <b>Run Configuration:</b><br/>
-                    <label>Event Name:</label>
-                    <input
-                        type="text"
-                        placeholder="Enter event name"
-                        defaultValue="init"
-                        name="eventName"
-                        ref={(input) => this.eventName = input}
-                        required/>
-                    <label>Parameters:</label>
-                    <input
-                        type="text"
-                        placeholder="Enter parameters"
-                        defaultValue="parameters"
-                        name="parameters"
-                        ref={(input) => this.parameters = input}
-                        required/>
-                    <label>Subject Table:</label>
-                    <input
-                        type="text"
-                        placeholder="Enter subject table"
-                        defaultValue="subjectTable"
-                        name="subjectTable"
-                        ref={(input) => this.subjectTable = input}
-                        required/>
-                    <label>Subject ID:</label>
-                    <input
-                        type="text"
-                        placeholder="Enter subject id"
-                        defaultValue="init"
-                        name="subjectID"
-                        ref={(input) => this.subjectID = input}
-                        required/>
-                    <label>Predicate Table:</label>
-                    <input
-                        type="text"
-                        placeholder="Enter predicate table"
-                        defaultValue="init"
-                        name="predicateTable"
-                        ref={(input) => this.predicateTable = input}
-                        required/>
-                    <label>Predicate ID:</label>
-                    <input
-                        type="text"
-                        placeholder="Enter predicate id"
-                        defaultValue="init"
-                        name="predicateID"
-                        ref={(input) => this.predicateID = input}
-                        required/>
-                </div>);
-        }
+        const runConfig = (
+            <div style={(this.props.deployments.showRunConfig) ? {} : {display: "none"}}>
+                <b>Run Configuration:</b><br/>
+                <label>Event Name:</label>
+                <input
+                    type="text"
+                    placeholder="Enter event name"
+                    defaultValue="run"
+                    name="eventName"
+                    ref={(input) => this.eventName = input}
+                    required/>
+                <label>Parameters:</label>
+                <input
+                    type="text"
+                    placeholder="Enter parameters"
+                    defaultValue="return 0"
+                    name="parameters"
+                    ref={(input) => this.parameters = input}
+                    required/>
+                <label>Subject Table:</label>
+                <input
+                    type="text"
+                    placeholder="Enter subject table"
+                    defaultValue=""
+                    name="subjectTable"
+                    ref={(input) => this.subjectTable = input}
+                    required/>
+                <label>Subject ID:</label>
+                <input
+                    type="text"
+                    placeholder="Enter subject id"
+                    defaultValue="0"
+                    name="subjectID"
+                    ref={(input) => this.subjectID = input}
+                    required/>
+                <label>Predicate Table:</label>
+                <input
+                    type="text"
+                    placeholder="Enter predicate table"
+                    defaultValue=""
+                    name="predicateTable"
+                    ref={(input) => this.predicateTable = input}
+                    required/>
+                <label>Predicate ID:</label>
+                <input
+                    type="text"
+                    placeholder="Enter predicate id"
+                    defaultValue="0"
+                    name="predicateID"
+                    ref={(input) => this.predicateID = input}
+                    required/>
+            </div>);
         return (
             <div
                 align="left"
@@ -287,9 +355,13 @@ class DeploymentEditor extends Component {
                     <button onClick={this.onClickNew}>New</button>
                     <button onClick={this.refreshDeployments}>Refresh all</button>
                     <button disabled="disabled">Refresh</button>
-                    <button disabled="disabled">Run</button>
+                    <button
+                        disabled={activeDeployment && !this.props.deployments.running ? "" : "disabled"}
+                            onClick={this.onClickRun}>Run</button>
                     <button onClick={this.toggleRunConfig}>Run config</button>
-                    <button disabled="disabled">Delete</button>
+                    <button
+                        disabled={activeDeployment && !this.props.deployments.running ? "" : "disabled"}
+                            onClick={this.onClickDelete}>Delete</button>
                 </div>
                 {runConfig}
                 <div>
